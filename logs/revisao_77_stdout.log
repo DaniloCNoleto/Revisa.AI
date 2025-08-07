@@ -1,0 +1,40 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+
+ Documento a processar: documento teste1_UBujYb8.docx
+ Modo de revisão: inconsistencias
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 77)
+
+ Iniciando processamento de 'verificador_contradicoes_globais.py' para o documento 'documento teste1_UBujYb8.docx'.
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\verificador_contradicoes_globais.py documento teste1_UBujYb8.docx --id_revisao 77
+
+ Iniciando Verificador de Contradies para: documento teste1_UBujYb8.docx
+  Mapeando contedo e etiquetando origens...
+  Mapeamento concludo. 52 itens de contedo etiquetados.
+Analisando item 1/52: Pargrafo 1
+Analisando item 2/52: Pargrafo 2
+Analisando item 3/52: Pargrafo 3
+Analisando item 4/52: Pargrafo 4
+Analisando item 5/52: Pargrafo 5
+Analisando item 6/52: Pargrafo 6
+Analisando item 7/52: Pargrafo 7
+Analisando item 8/52: Pargrafo 8
+Analisando item 9/52: Pargrafo 9
+Analisando item 10/52: Pargrafo 10
+Analisando item 11/52: Pargrafo 11
+Analisando item 12/52: Pargrafo 12
+Analisando item 13/52: tabela_1_linha_1_coluna_1
+ ERRO FATAL ao analisar documento teste1_UBujYb8:
+   Erro durante a execução de 'verificador_contradicoes_globais.py'. Código: 1
+   Saída de erro:
+Traceback (most recent call last):
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\verificador_contradicoes_globais.py", line 188, in analisar_documento
+    if item["tipo"] == "texto" and len(item["texto"]) > 15:
+       ~~~~^^^^^^^^
+KeyError: 'tipo'
+
+ Houve uma falha durante o processamento de 'verificador_contradicoes_globais.py'.
+ Falhas durante o processamento. O processo pode ter sido cancelado ou encontrado um erro.
+ Progresso atualizado para: 100% (ID da Revisão: 77)
+ Gerenciador finalizou a execução.

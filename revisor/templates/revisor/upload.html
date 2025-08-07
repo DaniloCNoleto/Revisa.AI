@@ -1,0 +1,32 @@
+{% extends 'revisor/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="content-card"> {# Usar a classe content-card para o estilo de vidro #}
+        <h1>Upload de Documento</h1>
+
+        {# Mensagens do Django já são exibidas em base.html, não precisa repetir aqui #}
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="file-input-wrapper">
+                <label for="documento" class="file-input-label">Escolher Ficheiro</label>
+                <input type="file" id="documento" name="documento" accept=".pdf,.doc,.docx,.txt" required>
+                <span id="file-name">Nenhum ficheiro selecionado</span>
+            </div>
+            <button type="submit">Enviar para Revisão</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript para exibir o nome do arquivo selecionado
+        document.getElementById('documento').addEventListener('change', function() {
+            const fileNameSpan = document.getElementById('file-name');
+            if (this.files && this.files.length > 0) {
+                fileNameSpan.textContent = this.files[0].name;
+            } else {
+                fileNameSpan.textContent = 'Nenhum ficheiro selecionado';
+            }
+        });
+    </script>
+{% endblock %}

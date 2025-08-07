@@ -1,0 +1,5 @@
+usage: Gerenciador_Revisores_Estruturados.py [-h] --id_revisao ID_REVISAO
+                                             --email EMAIL
+                                             --modo {completa,simples,inconsistencias}
+                                             caminho_arquivo
+Gerenciador_Revisores_Estruturados.py: error: argument --modo: invalid choice: 'lite' (choose from completa, simples, inconsistencias)

@@ -1,0 +1,28 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+
+ Documento a processar: documento teste1_8Vb3fvC.docx
+ Modo de revisão: simples
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 76)
+
+ Iniciando processamento de 'Revisor_Textual_Estruturado.py' para o documento 'documento teste1_8Vb3fvC.docx'.
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\Revisor_Textual_Estruturado.py documento teste1_8Vb3fvC.docx --id_revisao 76
+
+ Iniciando Reviso Textual Estruturada para: documento teste1_8Vb3fvC.docx
+  FASE 0: Coleta concluda. 52 blocos de texto encontrados.
+ Documento com reviso simples salvo em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento teste1_8Vb3fvC\documento teste1_8Vb3fvC_revisao_simples.docx
+ Planilha de resultados simples salva em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento teste1_8Vb3fvC\relatorio_revisao_simples.xlsx
+ Relatrio tcnico (.docx) salvo em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento teste1_8Vb3fvC\relatorio_tecnico_simples_documento teste1_8Vb3fvC.docx
+
+ Processo de reviso estruturada finalizado.
+ Concluído OK: 'Revisor_Textual_Estruturado.py' para 'documento teste1_8Vb3fvC.docx'
+ Progresso atualizado para: 95% (ID da Revisão: 76)
+ Processamento finalizado com sucesso. Gerando relatórios finais...
+Atualizando planilha mestra de rastreamento...
+Planilha mestra atualizada com sucesso.
+Enviando planilha mestra para n.danilo@dosselambiental.com.br...
+Planilha mestra enviada com sucesso.
+E-mail de conclusão enviado com sucesso para n.danilo@dosselambiental.com.br.
+ Progresso atualizado para: 100% (ID da Revisão: 76)
+ Gerenciador finalizou a execução.

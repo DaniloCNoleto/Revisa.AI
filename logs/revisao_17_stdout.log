@@ -1,0 +1,14 @@
+
+ Executando: C:\Users\Danilo\OneDrive\Área de Trabalho\Revisor de texto\Edição separada\revisor final\dossel_project\venv\Scripts\python.exe Scripts\Mapeador_Completo.py documento_teste_erros (1)_TGVpcoa.docx
+ Concluído: 'Scripts\Mapeador_Completo.py' para 'documento_teste_erros (1)_TGVpcoa.docx'.
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros (1)_TGVpcoa.docx' copiado para a pasta 'C:\Users\Danilo\OneDrive\Área de Trabalho\Revisor de texto\Edição separada\revisor final\dossel_project\media\entrada'.
+
+ Documento a processar: ['documento_teste_erros (1)_TGVpcoa.docx']
+ Modo de revisão: completa
+ E-mail destino: danilocnoleto95@hotmail.com
+ Progresso atualizado para: 5% (ID da Revisão: 17)
+
+ Iniciando processamento paralelo de 'Scripts\Mapeador_Completo.py' para 1 documento(s).
+ Progresso atualizado para: 25% (ID da Revisão: 17)
+ Cancelamento detectado para a revisão 17. Interrompendo processo.

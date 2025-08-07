@@ -1,0 +1,28 @@
+
+ Executando: C:\Users\Danilo\OneDrive\Área de Trabalho\Revisor de texto\Edição separada\revisor final\dossel_project\venv\scripts\python.exe Scripts\Mapeador_Completo.py documento_teste_erros (1)_G3dVdjV.docx
+ Erro ao executar 'Scripts\Mapeador_Completo.py' para 'documento_teste_erros (1)_G3dVdjV.docx'.
+   Saída: Traceback (most recent call last):
+  File "C:\Users\Danilo\OneDrive\rea de Trabalho\Revisor de texto\Edio separada\revisor final\dossel_project\Scripts\Mapeador_Completo.py", line 332, in <module>
+    mapear_documento_completo(nome_do_arquivo)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Danilo\OneDrive\rea de Trabalho\Revisor de texto\Edio separada\revisor final\dossel_project\Scripts\Mapeador_Completo.py", line 237, in mapear_documento_completo
+    print(f"\n\U0001f4c4 Processando: {nome_arquivo}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Danilo\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c4' in position 2: character maps to <undefined>
+
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros (1)_G3dVdjV.docx' copiado para a pasta 'C:\Users\Danilo\OneDrive\Área de Trabalho\Revisor de texto\Edição separada\revisor final\dossel_project\media\entrada'.
+
+ Documento a processar: ['documento_teste_erros (1)_G3dVdjV.docx']
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 10)
+
+ Iniciando processamento paralelo de 'Scripts\Mapeador_Completo.py' para 1 documento(s).
+ Houve falhas durante o processamento paralelo de 'Scripts\Mapeador_Completo.py'.
+ Falhas durante o processamento.
+ Progresso atualizado para: 100% (ID da Revisão: 10)
+ Gerenciador finalizou a execução.

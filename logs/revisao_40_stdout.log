@@ -1,0 +1,54 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros (1)_JKTtKKE.docx' copiado para a pasta 'C:\Users\Danilo\Downloads\dossel_project\media\entrada'.
+
+ Documento a processar: ['documento_teste_erros (1)_JKTtKKE.docx']
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 40)
+
+ Iniciando processamento paralelo de 'Scripts\Mapeador_Completo.py' para 1 documento(s).
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\Scripts\python.exe -u Scripts\Mapeador_Completo.py documento_teste_erros (1)_JKTtKKE.docx --id_revisao 40
+ Concluído OK: 'Scripts\Mapeador_Completo.py' para 'documento_teste_erros (1)_JKTtKKE.docx'
+ Progresso atualizado para: 25% (ID da Revisão: 40)
+
+ Iniciando processamento paralelo de 'Scripts\Processador_Final_Dossel.py' para 1 documento(s).
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\Scripts\python.exe -u Scripts\Processador_Final_Dossel.py documento_teste_erros (1)_JKTtKKE --id_revisao 40
+   Erro durante a execução de 'Scripts\Processador_Final_Dossel.py'. Código: 1
+   Saída de erro:
+C:\Users\Danilo\Downloads\dossel_project\Scripts\Processador_Final_Dossel.py:135: SyntaxWarning: invalid escape sequence '\s'
+  def extrair_resposta_ia(resp: str, padrao_comentario='\U0001f4dc\s*Comentrio'):
+C:\Users\Danilo\Downloads\dossel_project\Scripts\Processador_Final_Dossel.py:211: SyntaxWarning: invalid escape sequence '\s'
+  _, corrigido_ph, just = extrair_resposta_ia(resp, padrao_comentario='\U0001f4dd\s*Justificativa')
+Traceback (most recent call last):
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Processador_Final_Dossel.py", line 40, in <module>
+    django.setup()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Danilo\Downloads\dossel_project\venv\Lib\site-packages\django\__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Danilo\Downloads\dossel_project\venv\Lib\site-packages\django\conf\__init__.py", line 81, in __getattr__
+    self._setup(name)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Danilo\Downloads\dossel_project\venv\Lib\site-packages\django\conf\__init__.py", line 68, in _setup
+    self._wrapped = Settings(settings_module)
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Danilo\Downloads\dossel_project\venv\Lib\site-packages\django\conf\__init__.py", line 166, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "C:\Users\Danilo\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'dossel_project'
+
+ Houve falhas durante o processamento paralelo de 'Scripts\Processador_Final_Dossel.py'.
+ Falhas durante o processamento. O processo pode ter sido cancelado.
+ Progresso atualizado para: 100% (ID da Revisão: 40)
+ Gerenciador finalizou a execução.

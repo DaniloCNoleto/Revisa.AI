@@ -1,0 +1,17 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros_contradicoes_iLnlnaM.docx' copiado para a pasta 'C:\Users\Danilo\Downloads\dossel_project\media\entrada'.
+
+ Documento a processar: documento_teste_erros_contradicoes_iLnlnaM.docx
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 46)
+
+ Iniciando processamento de 'Processador_Unificado.py' para o documento 'documento_teste_erros_contradicoes_iLnlnaM.docx'.
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\Processador_Unificado.py documento_teste_erros_contradicoes_iLnlnaM.docx --id_revisao 46
+ Cancelamento detectado para a revisão 46.
+ Cancelamento solicitado; encerrando subprocesso…
+ Houve uma falha durante o processamento de 'Processador_Unificado.py'.
+ Falhas durante o processamento. O processo pode ter sido cancelado ou encontrado um erro.
+ Progresso atualizado para: 100% (ID da Revisão: 46)
+ Gerenciador finalizou a execução.

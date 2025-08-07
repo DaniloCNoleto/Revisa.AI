@@ -1,0 +1,60 @@
+{% extends 'revisor/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-card">
+    <h2>Acompanhamento da Revisão</h2>
+
+    {% comment %} Bloco para a revisão que está em processamento {% endcomment %}
+    {% if revisao_em_andamento %}
+        <div class="revisao-atual">
+            <h3>Revisando agora:</h3>
+            <p class="nome-arquivo">{{ revisao_em_andamento.file_name }}</p>
+
+            <!-- Barra de Progresso -->
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: {{ progresso}}%;"></div>
+                <div class="progress-bar-text">{{ progresso }}%</div>
+            </div>
+        </div>
+    {% else %}
+        <p>Nenhuma revisão em andamento no momento.</p>
+    {% endif %}
+
+    <!-- BOTÃO DE CANCELAMENTO (MOVIDO PARA DENTRO DO CARD) -->
+    <div class="action-button-container">
+        {% if revisao_em_andamento %}
+            <div class="action-button-container">
+                <form action="{% url 'cancelar_revisao' revisao_em_andamento.id %}" method="post">
+                    {% csrf_token %}
+                <button type="submit" class="btn-action-cancel">Cancelar Revisão</button>
+            </form>
+    </div>
+        {% endif %}
+
+    <hr class="separator">
+
+    {% comment %} Bloco para a fila de espera {% endcomment %}
+    <div class="fila-espera">
+        <h3>Próximos na fila:</h3>
+        <ul>
+            {% for item in fila_de_espera %}
+                <li>{{ forloop.counter }}. {{ item.file_name }}</li>
+            {% empty %}
+                <li>A fila de espera está vazia.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+
+{% comment %} Script para recarregar a página e atualizar o progresso {% endcomment %}
+{% if revisao_em_andamento and revisao_em_andamento.progress < 100 %}
+<script>
+    setTimeout(function() {
+        window.location.reload();
+    }, 5000); // Recarrega a página a cada 5 segundos
+</script>
+{% endif %}
+
+{% endblock %}

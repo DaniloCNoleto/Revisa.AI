@@ -1,0 +1,980 @@
+/* Estilo base */
+/* Variáveis CSS para temas claro e escuro */
+:root {
+    --bg-light: #fdfcfb; /* Quase branco da sua paleta e8f4d9 */
+    --bg-dark: #121212;
+    --box-light: rgba(255, 255, 255, 0.281); /* Cor de fundo para elementos com efeito de vidro */
+    --box-dark: rgba(0, 0, 0, 0.281);
+    --text-light: #4d3b20; /* Marrom da sua paleta */
+    --text-dark: #f0f0f0;
+    --border-light: rgba(0, 0, 0, 0.08);
+    --border-dark: rgba(255, 255, 255, 0.2);
+    --input-bg-light: #ffffff;
+    --input-border-light: #ccc;
+    --input-placeholder-light: #999;
+    --button-bg-light: #00af74; /* Verde da sua paleta */
+    --button-hover-light: #009663; /* Verde um pouco mais escuro para hover */
+    --sidebar-bg-light: rgba(255, 255, 255, 0.3); /* ALTERADO: Fundo claro da sidebar com mais transparência para efeito de vidro */
+    --sidebar-bg-dark: rgba(0, 0, 0, 0.4); /* ALTERADO: Fundo escuro da sidebar com mais transparência para efeito de vidro */
+    --sidebar-text-light: #00332f; /* Cor do texto da sidebar no tema claro */
+    --sidebar-text-dark: #f0f0f0; /* Cor do texto da sidebar no tema escuro */
+    --sidebar-hover-light: #e0e0e0; /* Cor de hover da sidebar no tema claro */
+    --sidebar-hover-dark: #333333; /* Cor de hover da sidebar no tema escuro */
+    --sidebar-width: 280px; /* Aumentei um pouco para mais conforto */
+    --transition-speed: 0.3s;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex; /* Usar flexbox para layout principal */
+    min-height: 100vh; /* Garante que o body ocupe a altura total */
+    background-color: var(--bg-light);
+    transition: background-color 0.3s;
+    position: relative;
+    overflow: hidden; /* Esconde overflow para o ::before */
+}
+
+/* Pseudo-elemento para a imagem da floresta (fundo), controlando opacidade separadamente */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/static/revisor/Floresta_clara.png"); /* Caminho relativo ao staticfiles */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.5; /* Opacidade da floresta no tema claro */
+    z-index: -2; /* Coloca a floresta ATRÁS de tudo */
+    transition: opacity 0.5s ease, background-image 0.5s ease;
+}
+
+/* 🌗 Dark mode para o body e a imagem da floresta */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--bg-dark);
+    }
+    body::before {
+        background-image: url("/static/revisor/Floresta_escura.png"); /* Caminho relativo ao staticfiles */
+        opacity: 0.4; /* Opacidade da floresta no tema escuro */
+    }
+}
+
+/* Sidebar */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    /* ATUALIZADO: Usando transform para animação mais suave */
+    transition: transform var(--transition-speed) ease-in-out;
+    background-color: var(--sidebar-bg-light);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border-right: 1px solid var(--border-light);
+    box-shadow: 0 2px 5px rgba(61, 255, 2, 0.116);
+    color: var(--sidebar-text-light);
+}
+@media (prefers-color-scheme: dark) {
+    .sidebar {
+        background-color: var(--sidebar-bg-dark);
+        border-right: 1px solid var(--border-dark);
+        color: var(--sidebar-text-dark);
+    }
+}
+/* Seus outros estilos de .sidebar-logo, .sidebar-nav, etc. permanecem aqui */
+
+
+/* --- CONTEÚDO PRINCIPAL ATUALIZADO --- */
+.main-content {
+    flex-grow: 1;
+    padding: 25px;
+    /* ATUALIZADO: transição na margem para o efeito de "empurrar" */
+    transition: margin-left var(--transition-speed) ease-in-out;
+    display: block; /* Removido flex para fluxo de conteúdo normal */
+    width: 100%; /* Garante que ocupe o espaço */
+    box-sizing: border-box; /* Garante que padding não aumente a largura */
+}
+
+/* --- BOTÕES DE CONTROLE DA SIDEBAR (COM EFEITO GLASS) --- */
+.hamburger, .close-sidebar, .collapse-sidebar {
+    position: fixed;
+    z-index: 1001;
+    cursor: pointer;
+    border: 1px solid var(--border-light);
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    
+    /* Efeito Glass */
+    background-color: var(--box-light);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+.hamburger:hover, .close-sidebar:hover, .collapse-sidebar:hover {
+    transform: scale(1.1);
+}
+@media (prefers-color-scheme: dark) {
+    .hamburger, .close-sidebar, .collapse-sidebar {
+        border: 1px solid var(--border-dark);
+        background-color: var(--box-dark);
+        color: var(--text-dark);
+    }
+}
+
+.hamburger { top: 20px; left: 20px; font-size: 24px; }
+.close-sidebar { position: absolute; top: 15px; right: 20px; font-size: 28px; }
+.collapse-sidebar { position: absolute; top: 15px; right: 15px; font-size: 24px; }
+
+/* --- LÓGICA RESPONSIVA E RETRÁTIL (BLOCO UNIFICADO) --- */
+
+/* A. LÓGICA PARA TELAS GRANDES (DESKTOP) */
+@media (min-width: 769px) {
+    .hamburger { display: none; }
+    .close-sidebar { display: none !important; }
+
+    /* Estado padrão (aberto) */
+    body.sidebar-open .main-content { margin-left: var(--sidebar-width); }
+    body.sidebar-open .sidebar { transform: translateX(0); }
+    body.sidebar-open .collapse-sidebar { display: block; }
+    body.sidebar-open .hamburger { display: none; }
+
+    /* Estado recolhido */
+    body:not(.sidebar-open) .main-content { margin-left: 0; }
+    body:not(.sidebar-open) .sidebar { transform: translateX(calc(-1 * var(--sidebar-width))); }
+    body:not(.sidebar-open) .collapse-sidebar { display: none; }
+    body:not(.sidebar-open) .hamburger { display: block; }
+}
+
+/* B. LÓGICA PARA TELAS PEQUENAS (MOBILE) */
+@media (max-width: 768px) {
+    .collapse-sidebar { display: none !important; }
+    .main-content { margin-left: 0 !important; }
+    
+    /* Estado padrão (fechado) */
+    .sidebar { transform: translateX(-100%); }
+    .hamburger { display: block; }
+    .close-sidebar { display: none; }
+
+    /* Estado aberto */
+    body.sidebar-open .sidebar { transform: translateX(0); }
+    body.sidebar-open .hamburger { display: none; }
+    body.sidebar-open .close-sidebar { display: block; }
+
+    /* Overlay */
+    body.sidebar-open::after {
+        content: '';
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+}
+
+
+/* --- O RESTO DO SEU CSS PODE SER COLADO AQUI SEM ALTERAÇÕES --- */
+/* (Estilos de .sidebar-logo, .sidebar-nav, .content-card, forms, etc.) */
+
+.sidebar-logo { text-align: center; margin-bottom: 30px; padding-top: 20px; background: transparent; }
+.sidebar-logo img { max-width: 150px; height: auto; transition: all 0.3s ease; }
+.sidebar-nav { flex-grow: 1; padding-top: 0; }
+.sidebar-nav ul { list-style: none; padding: 0; margin: 0; }
+.sidebar-nav li { margin-bottom: 10px; }
+.sidebar-nav a { display: block; padding: 12px 15px; text-decoration: none; color: inherit; border-radius: 8px; transition: background-color 0.3s, color 0.3s; font-weight: 600; }
+.sidebar-nav a:hover { background-color: var(--sidebar-hover-light); color: var(--button-bg-light); }
+@media (prefers-color-scheme: dark) { .sidebar-nav a:hover { background-color: var(--sidebar-hover-dark); color: var(--button-bg-light); } }
+.sidebar-bottom { padding-top: 20px; padding-bottom: 20px; text-align: center; }
+.sidebar-bottom a { display: block; width: auto; max-width: 150px; margin: 0 auto; padding: 12px 25px; text-decoration: none; color: white; background-color: #dc3545; border-radius: 8px; font-weight: 600; transition: background-color 0.3s, transform 0.2s; box-shadow: 0 2px 5px rgba(255, 2, 2, 0.534); }
+.sidebar-bottom a:hover { background-color: #c82333; transform: translateY(-1px); box-shadow: 0 4px 8px rgba(255, 2, 2, 0.534); }
+@media (prefers-color-scheme: dark) { .sidebar-bottom a { background-color: #dc3545; } .sidebar-bottom a:hover { background-color: #ff4757; } }
+
+/* --- FIM Estilos para o link "Sair" no fim da sidebar --- */
+
+
+/* Conteúdo principal (área à direita da sidebar) */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column; /* Permite que os elementos dentro dele se empilhem */
+    align-items: center; /* Centraliza horizontalmente o conteúdo */
+    justify-content: center; /* Centraliza verticalmente o conteúdo na tela */
+    padding: 20px; /* Padding geral para o conteúdo principal */
+    /* REMOVIDO: padding-top: 20px; - para garantir centralização perfeita */
+    color: var(--text-light);
+    transition: color 0.3s;
+    position: relative;
+    z-index: 1;
+    overflow-y: auto; /* Permite rolagem se o conteúdo for muito longo */
+}
+
+@media (prefers-color-scheme: dark) {
+    .main-content {
+        color: var(--text-dark);
+    }
+}
+
+
+/* Estilos para cards de conteúdo (reutilizáveis para upload, modo_revisao, etc.) */
+.content-card {
+    background-color: var(--box-light);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border-radius: 15px;
+    margin: 0 auto;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 8px 20px rgba(61, 255, 2, 0.116);
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 800px; /* REVERTIDO para 800px para as OUTRAS páginas */
+    box-sizing: border-box;
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+}
+
+/* NOVO: Estilo específico para o content-card da página de Resultados (para ser mais largo) */
+.content-card-resultados {
+    max-width: 1200px; /* DEFINIDO: Largura máxima para a página de resultados */
+}
+
+@media (prefers-color-scheme: dark) {
+    .content-card {
+        background-color: var(--box-dark);
+        border: 1px solid var(--border-dark);
+        box-shadow: 0 12px 30px rgba(61, 255, 2, 0.116);
+    }
+}
+
+/* Títulos dentro dos cards */
+.content-card h1, .content-card h2 {
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    color: var(--button-bg-light);
+}
+@media (prefers-color-scheme: dark) {
+    .content-card h1, .content-card h2 {
+        color: var(--button-bg-light);
+    }
+}
+
+/* Estilos de formulário comuns (inputs, botões) */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="file"] + span { /* Estilo para o span que exibe o nome do arquivo */
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--input-border-light);
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: var(--input-bg-light);
+    color: var(--text-light);
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder {
+    color: var(--input-placeholder-light);
+}
+
+@media (prefers-color-scheme: dark) {
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="file"] + span {
+        background-color: #1f1f1f;
+        color: var(--text-dark);
+        border: 1px solid #555;
+    }
+    input[type="text"]::placeholder,
+    input[type="password"]::placeholder,
+    input[type="email"]::placeholder {
+        color: #aaa;
+    }
+}
+
+/* Estilo para o label customizado do input de arquivo */
+.file-input-label {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 10px 20px; /* Diminui a altura do padding vertical */
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-weight: 500;
+    margin-bottom: 15px;
+    display: inline-block; /* Para que o label se comporte como um botão */
+    width: 150px; /* Largura fixa para o botão "Escolher Ficheiro" */
+    text-align: center; /* Centraliza o texto dentro do botão */
+    max-width: 250px; /* Limita a largura do botão "Escolher Ficheiro" */
+}
+
+.file-input-label:hover {
+    background-color: #e0e0e0;
+    border-color: #ccc;
+}
+
+@media (prefers-color-scheme: dark) {
+    .file-input-label {
+        background-color: #333;
+        color: #f0f0f0;
+        border: 1px solid #555;
+    }
+    .file-input-label:hover {
+        background-color: #444;
+        border-color: #666;
+    }
+}
+
+/* Esconde o input de arquivo padrão */
+input[type="file"] {
+    display: none;
+}
+
+/* Botões de submit gerais */
+button[type="submit"] { /* Separado de .generic-button para controle de largura */
+    width: auto; /* Permite que a largura seja definida por max-width */
+    max-width: 300px; /* Largura máxima para o botão de submit */
+    margin: 0 auto; /* Centraliza o botão */
+    display: block; /* Faz o botão se comportar como um bloco para centralização com margin: auto */
+    padding: 10px 15px; /* Diminui a altura do padding vertical */
+    background-color: var(--button-bg-light);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(61, 255, 2, 0.116);
+}
+.generic-button { /* Mantido para botões fora de form submit (como o "Sair") */
+    width: auto; /* ALTERADO: para que possa ser mais fino também, se não for 100% */
+    max-width: 300px; /* Adicionado: Para limitar a largura do botão Sair */
+    margin: 0 auto; /* Adicionado: para centralizar se for display block */
+    display: block; /* ALTERADO: para permitir margin auto e centralização */
+    padding: 10px 25px; /* Ajuste o padding vertical aqui se quiser que o botão "Sair" também seja mais fino, ex: 10px 25px */
+    height: auto; /* Mantido: Altura fixa para os botões */
+    background-color: var(--button-bg-light);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(61, 255, 2, 0.116);
+    text-decoration: none; /* Para usar em <a> como botão */
+}
+
+
+button[type="submit"]:hover, .generic-button:hover {
+    background-color: var(--button-hover-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(61, 255, 2, 0.116);
+}
+
+@media (prefers-color-scheme: dark) {
+    button[type="submit"], .generic-button {
+        background-color: #00bfa5;
+        box-shadow: 0 4px 10px rgba(61, 255, 2, 0.116);
+    }
+    button[type="submit"]:hover, .generic-button:hover {
+        background-color: #009e88;
+        box-shadow: 0 6px 12px rgba(61, 255, 2, 0.116);
+    }
+}
+
+
+/* Estilos para as mensagens do Django */
+ul.messages {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0; /* Ajusta espaçamento para ficar acima do card */
+    width: 100%;
+    max-width: 800px; /* Limita a largura das mensagens */
+    text-align: center;
+}
+
+ul.messages li {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+ul.messages li.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+ul.messages li.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+ul.messages li.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+@media (prefers-color-scheme: dark) {
+    ul.messages li.success {
+        background-color: #28a745;
+        color: #fff;
+    }
+    ul.messages li.error {
+        background-color: #dc3545;
+        color: #fff;
+    }
+    ul.messages li.info {
+        background-color: #17a2b8;
+        color: #fff;
+    }
+}
+
+/* Estilos específicos para os botões de modo (modo_revisao.html) */
+.modo-btn-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espaço entre os botões */
+    margin-top: 30px;
+    height: auto; /* Permite que a altura se ajuste ao conteúdo */
+}
+
+.modo-btn {
+    flex: 1 1 200px; /* 3 botões por linha em telas maiores, com espaçamento */
+    min-width: 180px; /* Largura mínima para cada botão */
+    max-width: auto; /* Largura máxima para cada botão */
+    padding: 15px 10px; /* Diminui o padding vertical e horizontal */
+    background-color: var(--button-bg-light);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(61, 255, 2, 0.116);
+    text-decoration: none; /* Para usar em <a> como botão */
+    display: flex; /* Para centralizar o texto verticalmente */
+    align-items: center;
+    justify-content: center;
+    height: auto; /* Altura fixa menor para os botões */
+}
+
+.modo-btn:hover {
+    background-color: var(--button-hover-light);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(61, 255, 2, 0.116);
+}
+
+@media (prefers-color-scheme: dark) {
+    .modo-btn {
+        background-color: #00bfa5;
+        box-shadow: 0 4px 10px rgba(61, 255, 2, 0.116);
+    }
+    .modo-btn:hover {
+        background-color: #009e88;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(61, 255, 2, 0.116);
+    }
+}
+
+@media (max-width: 768px) {
+    .modo-btn {
+        flex: 1 1 100%; /* Um botão por linha em telas menores */
+    }
+}
+
+/* Animação de tremer (se for reutilizada do login/registro) */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake-effect { /* Classe genérica para aplicar o shake */
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Botão hambúrguer */
+.hamburger {
+    display: none; /* Inicialmente escondido em telas maiores */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    color: var(--text-light); /* Cor do ícone, adaptável ao tema */
+    cursor: pointer;
+    z-index: 30; /* Acima de tudo para ser clicável */
+    background-color: transparent; /* Garante que o fundo seja transparente */
+    background: rgba(253, 253, 253, 0.5);
+    border: none; /* Remove borda padrão de botão */
+    padding: 8px; /* Adiciona um pouco de padding para toque */
+    border-radius: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .hamburger {
+        color: var(--text-dark);
+    }
+}
+
+/* Botão de fechar sidebar (X) */
+.close-sidebar {
+    display: none; /* Escondido por padrão */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 35px; /* Tamanho maior para o X */
+    color: var(--text-light); /* Cor do X, adaptável ao tema */
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    z-index: 1001; /* Acima da sidebar */
+}
+
+@media (prefers-color-scheme: dark) {
+    .close-sidebar {
+        color: var(--text-dark);
+    }
+}
+
+/* Sidebar responsiva */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Mostra o hambúrguer em telas pequenas */
+    }
+    body.sidebar-open .hamburger { /* Esconde o hambúrguer quando a sidebar está aberta em mobile */
+        display: none;
+    }
+    /* Mostra o botão de fechar quando a sidebar está aberta */
+    .sidebar.open .close-sidebar {
+        display: block;
+    }
+
+
+    .sidebar {
+        position: fixed;
+        left: -250px; /* Esconde a sidebar fora da tela */
+        top: 0;
+        height: 100%;
+        transition: left 0.3s ease;
+        /* Adiciona um fundo mais sólido para quando estiver aberto */
+        background-color: var(--sidebar-bg-light); /* Usa a variável para o tema claro */
+        box-shadow: 0 2px 10px rgba(61, 255, 2, 0.116);
+    }
+
+    .sidebar.open {
+        left: 0; /* Desliza a sidebar para dentro da tela */
+        width: 250px; /* Largura total quando aberta em mobile */
+    }
+
+    /* Esconde os links de navegação quando a sidebar está fechada em mobile */
+    .sidebar:not(.open) .sidebar-nav,
+    .sidebar:not(.open) .sidebar-bottom {
+        display: none;
+    }
+    /* Esconde a logo da sidebar quando a sidebar está fechada em mobile */
+    .sidebar:not(.open) .sidebar-logo {
+        display: none; /* A logo fixa do canto superior esquerdo será visível */
+    }
+
+
+    /* Ajusta o conteúdo principal quando a sidebar está aberta (opcional, mas bom para UX) */
+    .main-content {
+        margin-left: 0; /* Remove qualquer margem que possa ter sido adicionada */
+    }
+    /* Adicione um overlay para quando a sidebar estiver aberta */
+    body.sidebar-open::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); /* Escurece o resto da tela */
+        z-index: 9; /* Abaixo da sidebar, acima do conteúdo */
+    }
+}
+
+/* Logo fixa no canto superior esquerdo (visível quando sidebar recolhida em mobile) */
+/* Esta regra é para a logo que fica FORA da sidebar quando ela está recolhida em mobile */
+.fixed-top-left-logo { /* Novo nome para evitar conflito com .sidebar-logo */
+    display: none; /* ALTERADO: Escondido por padrão (no desktop) */
+    position: fixed; /* Mantenha fixed para que ela não role */
+    top: 20px;
+    left: 20px;
+    z-index: 20; /* Acima do fundo, abaixo do hambúrguer */
+}
+.fixed-top-left-logo img {
+    max-width: 100px; /* Tamanho da logo fixa em mobile */
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .fixed-top-left-logo {
+        display: block; /* Mostra a logo fixa apenas em mobile */
+    }
+    /* Quando a sidebar está aberta, a logo fixa pode ser escondida ou ajustada */
+    body.sidebar-open .fixed-top-left-logo {
+        display: none; /* Esconde a logo fixa quando a sidebar está aberta */
+    }
+}
+
+/* Regra para a logo dentro da sidebar quando ela está aberta em mobile */
+@media (max-width: 768px) {
+    .sidebar.open .sidebar-logo {
+        display: block; /* Garante que a logo dentro da sidebar apareça quando aberta */
+        position: relative; /* Volta ao fluxo normal dentro da sidebar */
+        top: auto;
+        left: auto;
+        z-index: auto;
+    }
+    .sidebar.open .sidebar-logo img {
+        max-width: 150px; /* Tamanho normal da logo quando sidebar aberta */
+    }
+}
+/* Estilos para a página de Resultados */
+.resultados-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Padrão: uma coluna para mobile */
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+@media (min-width: 768px) { /* Em telas maiores, use 3 colunas */
+    .resultados-grid {
+        /* Aumentado o espaço para os gráficos. Ajuste esses valores se necessário */
+        /* Proporções: gráfico_barra | métricas | gráfico_pizza */
+        grid-template-columns: 2.5fr 1.5fr 2.5fr; /* ALTERADO: Proporções com mais espaço para gráficos */
+        align-items: start; /* Alinha o conteúdo das colunas ao topo */
+        margin: 0 auto; /* Centraliza o grid na tela se max-width for usada */
+    }
+}
+
+.col-grafico, .col-metricas {
+    background-color: var(--box-light);
+    color: var(--text-light); /* ADICIONADO: Define a cor do texto para o tema claro */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 20px;
+    /* REMOVIDO: display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; */
+    /* Essas propriedades foram removidas para dar mais liberdade ao Plotly e para alinhar o conteúdo interno de forma mais específica */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden; /* Mantém o conteúdo dentro dos limites da caixa */
+    flex-grow: 1;
+}
+
+/* Adicione esta nova regra para o tema escuro */
+@media (prefers-color-scheme: dark) {
+    .col-grafico, .col-metricas {
+        color: var(--text-dark); /* ADICIONADO: Define a cor do texto para o tema escuro */
+    }
+}
+
+/* Ajustes para o Plotly dentro do container */
+/* Mantemos estes, mas a remoção do flexbox no .col-grafico pode já ajudar muito */
+.plotly-container {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 350px; /* Garante altura mínima para os gráficos */
+    max-height: 600px; /* Define uma altura máxima */
+    /*display: flex; /* Mantenha se quiser centralizar o gráfico DEPOIS que ele renderiza */
+    /*justify-content: center; */
+    /*align-items: center; */
+}
+.js-plotly-plot {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 auto;
+}
+
+.js-plotly-plot svg {
+    overflow: visible !important;
+}
+
+/* Estilo para as métricas */
+.col-metricas h3 {
+    color: var(--button-bg-light);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.col-metricas p {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    text-align: left; /* Alinha métricas à esquerda */
+    padding-left: 10px; /* Adiciona um pequeno padding para afastar da borda */
+}
+
+
+/* Estilo para os downloads */
+.col-metricas ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 25px; /* Aumenta o espaçamento superior para separar das métricas */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; /* Centraliza os botões horizontalmente */
+    width: 100%; /* Garante que o UL use a largura total para alinhar os botões */
+}
+.col-metricas li {
+    margin-bottom: 0;
+    width: 100%; /* Garante que o item da lista ocupe a largura total */
+    text-align: center; /* Centraliza o conteúdo dentro do li */
+}
+.col-metricas li a { /* Estiliza os LINKS de download como BOTÕES */
+    display: block; /* Para que o link ocupe o espaço e possa ser centralizado */
+    background-color: var(--button-bg-light);
+    color: white; /* Cor do texto do botão de download */
+    padding: 10px 15px; /* Ajuste o padding para a altura/largura desejada do botão */
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95em;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(61, 255, 2, 0.116);
+    text-align: center;
+    max-width: 250px; /* Ajuste a largura máxima do botão de download */
+    margin: 0 auto; /* Centraliza o botão dentro do li */
+}
+
+.col-metricas li a:hover {
+    background-color: var(--button-hover-light);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .col-metricas li a {
+        background-color: #00bfa5;
+        color: white;
+    }
+    .col-metricas li a:hover {
+        background-color: #009e88;
+    }
+}   
+
+/* --- NOVOS ESTILOS PARA A PÁGINA DE ACOMPANHAMENTO --- */
+
+.revisao-atual h3, .fila-espera h3 {
+    color: var(--button-bg-light);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.revisao-atual .nome-arquivo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+@media (prefers-color-scheme: dark) {
+    .revisao-atual .nome-arquivo {
+        color: var(--text-dark);
+    }
+}
+
+
+/* Barra de Progresso */
+.progress-bar-container {
+    position: relative;
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    height: 35px;
+    margin-bottom: 25px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    overflow: hidden; /* Garante que o preenchimento fique dentro das bordas arredondadas */
+}
+
+.progress-bar-fill {
+    background-color: var(--button-bg-light);
+    height: 100%;
+    border-radius: 8px;
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-bar-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+.separator {
+    border: none;
+    border-top: 1px solid var(--border-light);
+    margin: 40px 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .separator {
+        border-top: 1px solid var(--border-dark);
+    }
+}
+
+.fila-espera ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.fila-espera li {
+    padding: 8px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.fila-espera li:last-child {
+    border-bottom: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .fila-espera li {
+        border-bottom: 1px solid var(--border-dark);
+    }
+}
+
+/* Botão de Cancelar */
+.action-button-container {
+    margin-top: 25px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.btn-action-cancel {
+    padding: 12px 30px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+    display: inline-block;
+}
+
+.btn-action-cancel:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.5);
+}
+
+.btn-action-cancel:disabled,
+.btn-action-cancel[disabled]{
+    background-color: #6c757d;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn-action-cancel:disabled:hover,
+.btn-action-cancel[disabled]:hover {
+    background-color: #6c757d;
+    transform: none;
+    box-shadow: none;
+}
+/* Separador e Fila de Espera */
+.separator {
+    border: none;
+    border-top: 1px solid var(--border-light);
+    margin: 40px 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .separator {
+        border-top: 1px solid var(--border-dark);
+    }
+}
+
+.fila-espera ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.fila-espera li {
+    padding: 8px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.fila-espera li:last-child {
+    border-bottom: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .fila-espera li {
+        border-bottom: 1px solid var(--border-dark);
+    }
+}
+
+.fixed-button-container {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza o container */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+.btn-fixed-cancel {
+    padding: 12px 30px;
+    background-color: #c82333; /* Vermelho perigo */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+    display: block;
+}
+
+.btn-fixed-cancel:hover {
+    background-color: #c82333; /* Vermelho mais escuro */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.5);
+}
+
+/* Esconde o botão fixo em telas pequenas se a sidebar estiver aberta, para não sobrepor */
+@media (max-width: 768px) {
+    body.sidebar-open .fixed-button-container {
+        display: none;
+    }
+}

@@ -1,0 +1,21 @@
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\Scripts\python.exe Scripts\Mapeador_Completo.py documento_teste_erros (1)_3fBPJPc.docx
+ Erro ao executar 'Scripts\Mapeador_Completo.py' para 'documento_teste_erros (1)_3fBPJPc.docx'.
+   Saída: Traceback (most recent call last):
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Mapeador_Completo.py", line 29, in <module>
+    from docx import Document
+ModuleNotFoundError: No module named 'docx'
+
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros (1)_3fBPJPc.docx' copiado para a pasta 'C:\Users\Danilo\Downloads\dossel_project\media\entrada'.
+
+ Documento a processar: ['documento_teste_erros (1)_3fBPJPc.docx']
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 25)
+
+ Iniciando processamento paralelo de 'Scripts\Mapeador_Completo.py' para 1 documento(s).
+ Houve falhas durante o processamento paralelo de 'Scripts\Mapeador_Completo.py'.
+ Falhas durante o processamento.
+ Progresso atualizado para: 100% (ID da Revisão: 25)
+ Gerenciador finalizou a execução.

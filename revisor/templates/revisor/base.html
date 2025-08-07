@@ -1,0 +1,93 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dossel Revisor</title>
+    <link rel="stylesheet" href="{% static 'revisor/style.css' %}">
+    {% block extra_head_scripts %}{% endblock %}
+</head>
+<body class="sidebar-open"> <button id="sidebar-toggle-btn" class="hamburger">&#9776;</button>
+
+    <div class="sidebar">
+        <button id="sidebar-close-btn" class="close-sidebar">&times;</button>
+        <button id="sidebar-collapse-btn" class="collapse-sidebar">&laquo;</button>
+
+        <div class="sidebar-logo">
+            <img src="{% static 'revisor/logo_dossel.png' %}" alt="Dossel Logo">
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="{% url 'upload' %}">Upload</a></li>
+                <li><a href="{% url 'modo_revisao' %}">Modo de Revisão</a></li>
+                <li><a href="{% url 'acompanhamento' %}">Acompanhamento</a></li>
+                <li><a href="{% url 'historico' %}">Histórico</a></li>
+                <li><a href="{% url 'password_change' %}">Alterar Senha</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-bottom">
+            <a href="{% url 'logout' %}" class="generic-button">Sair</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            // Seleciona todos os botões que devem controlar a sidebar
+            const toggleButtons = [
+                document.getElementById('sidebar-toggle-btn'),
+                document.getElementById('sidebar-close-btn'),
+                document.getElementById('sidebar-collapse-btn')
+            ];
+
+            const toggleSidebar = () => {
+                // A função agora só alterna a classe principal no body
+                body.classList.toggle('sidebar-open');
+                
+                // Salva o estado para lembrar a escolha do usuário no desktop
+                if (window.innerWidth > 768) {
+                    const state = body.classList.contains('sidebar-open') ? 'open' : 'closed';
+                    localStorage.setItem('desktopSidebarState', state);
+                }
+            };
+
+            // Adiciona o mesmo evento de clique a todos os botões de controle
+            toggleButtons.forEach(btn => {
+                if(btn) btn.addEventListener('click', toggleSidebar);
+            });
+
+            // Lógica para definir o estado inicial ao carregar a página
+            const applyInitialState = () => {
+                if (window.innerWidth > 768) {
+                    // No desktop, respeita o estado salvo. Se não houver, começa aberto.
+                    if (localStorage.getItem('desktopSidebarState') === 'closed') {
+                        body.classList.remove('sidebar-open');
+                    } else {
+                        body.classList.add('sidebar-open');
+                    }
+                } else {
+                    // No mobile, sempre começa fechado.
+                    body.classList.remove('sidebar-open');
+                }
+            };
+
+            // Aplica o estado inicial ao carregar
+            applyInitialState();
+            
+            // Re-aplica o estado se a janela for redimensionada (ex: virar o tablet)
+            window.addEventListener('resize', applyInitialState);
+        });
+    </script>
+</body>
+</html>

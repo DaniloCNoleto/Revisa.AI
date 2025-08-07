@@ -1,0 +1,37 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+
+ Documento a processar: documento teste1_6xAzdPZ.docx
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 80)
+
+ Iniciando processamento de 'Processador_Unificado.py' para o documento 'documento teste1_6xAzdPZ.docx'.
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\Processador_Unificado.py documento teste1_6xAzdPZ.docx --id_revisao 80
+
+ Iniciando processamento completo para: documento teste1_6xAzdPZ.docx
+  FASE 0: Mapeando contedo e etiquetando origens (verso completa)...
+  Mapeando contedo de tabelas...
+  Mapeando contedo de cabealhos e rodaps...
+  Mapeamento concludo. 52 itens de contedo etiquetados (incluindo tabelas, cabealhos e rodaps).
+  FASE 3: Verificao Cruzada de Citaes iniciada.
+
+--- INICIANDO FASE 4: Anlise Avanada ---
+  FASE 4.1: Executando validaes locais (baseadas em regras)...
+    Validaes locais concludas. Encontrado(s) 0 problema(s).
+  FASE 4.2: Executando anlise crtica e multimodal com IA...
+  FASE 4.3: Enviando dossi consolidado para anlise final...
+ Documento revisado salvo em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento teste1_6xAzdPZ\documento teste1_6xAzdPZ_revisao_completa.docx
+ ERRO FATAL ao processar documento teste1_6xAzdPZ:
+   Erro durante a execução de 'Processador_Unificado.py'. Código: 1
+   Saída de erro:
+Traceback (most recent call last):
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Processador_Unificado.py", line 390, in processar_documento
+    if dados["in"] > 0 or dados["out"] > 0: # Apenas mostra fases que tiveram consumo
+       ~~~~~^^^^^^
+KeyError: 'in'
+
+ Houve uma falha durante o processamento de 'Processador_Unificado.py'.
+ Falhas durante o processamento. O processo pode ter sido cancelado ou encontrado um erro.
+ Progresso atualizado para: 100% (ID da Revisão: 80)
+ Gerenciador finalizou a execução.

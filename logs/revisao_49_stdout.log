@@ -1,0 +1,102 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros_contradicoes_4rtCOhg.docx' copiado para a pasta 'C:\Users\Danilo\Downloads\dossel_project\media\entrada'.
+
+ Documento a processar: documento_teste_erros_contradicoes_4rtCOhg.docx
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 49)
+
+ Iniciando processamento de 'Processador_Unificado.py' para o documento 'documento_teste_erros_contradicoes_4rtCOhg.docx'.
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\Processador_Unificado.py documento_teste_erros_contradicoes_4rtCOhg.docx --id_revisao 49
+
+ Iniciando processamento completo para: documento_teste_erros_contradicoes_4rtCOhg.docx
+  FASE 0: Mapeando contedo e etiquetando origens (verso completa)...
+  Mapeando contedo de tabelas...
+  Mapeando contedo de cabealhos e rodaps...
+  Mapeamento concludo. 52 itens de contedo etiquetados (incluindo tabelas, cabealhos e rodaps).
+  FASE 3: Verificao Cruzada de Citaes iniciada.
+
+--- INICIANDO FASE 4: Anlise Global e Multimodal (MODO DEPURAO) ---
+FASE 4: Total de 52 itens a serem analisados para extrao de fatos/imagens.
+
+FASE 4 (Extrao): Processando item 1/52. Origem: Pargrafo 1
+FASE 4 (Extrao): Item 'Pargrafo 1' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 2/52. Origem: Pargrafo 3
+FASE 4 (Extrao): Item 'Pargrafo 3' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 3/52. Origem: Pargrafo 4
+FASE 4 (Extrao): Item 'Pargrafo 4' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 4/52. Origem: Pargrafo 5
+FASE 4 (Extrao): Item 'Pargrafo 5' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 5/52. Origem: Pargrafo 7
+FASE 4 (Extrao): Item 'Pargrafo 7' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 6/52. Origem: Pargrafo 2
+FASE 4 (Extrao): Item 'Pargrafo 2' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 7/52. Origem: Pargrafo 8
+FASE 4 (Extrao): Item 'Pargrafo 8' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 8/52. Origem: Pargrafo 9
+FASE 4 (Extrao): Item 'Pargrafo 9' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 9/52. Origem: Pargrafo 12
+FASE 4 (Extrao): Item 'Pargrafo 12' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 10/52. Origem: Pargrafo 10
+FASE 4 (Extrao): Item 'Pargrafo 10' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 11/52. Origem: Pargrafo 11
+FASE 4 (Extrao): Item 'Pargrafo 11' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 12/52. Origem: Tabela 1, Linha 1, Coluna 2
+FASE 4 (Extrao): Item 'Tabela 1, Linha 1, Coluna 2' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 13/52. Origem: Tabela 1, Linha 1, Coluna 1
+FASE 4 (Extrao): Item 'Tabela 1, Linha 1, Coluna 1' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 14/52. Origem: Tabela 1, Linha 1, Coluna 3
+FASE 4 (Extrao): Item 'Tabela 1, Linha 1, Coluna 3' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 15/52. Origem: Tabela 1, Linha 2, Coluna 2
+FASE 4 (Extrao): Item 'Tabela 1, Linha 2, Coluna 2' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 16/52. Origem: Tabela 1, Linha 2, Coluna 1
+FASE 4 (Extrao): Item 'Tabela 1, Linha 2, Coluna 1' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 17/52. Origem: Tabela 1, Linha 2, Coluna 3
+FASE 4 (Extrao): Item 'Tabela 1, Linha 2, Coluna 3' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 18/52. Origem: Pargrafo 6
+FASE 4 (Extrao): Item 'Pargrafo 6' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 19/52. Origem: Tabela 1, Linha 1, Coluna 4
+FASE 4 (Extrao): Item 'Tabela 1, Linha 1, Coluna 4' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 20/52. Origem: Tabela 1, Linha 3, Coluna 2
+FASE 4 (Extrao): Item 'Tabela 1, Linha 3, Coluna 2' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 21/52. Origem: Tabela 1, Linha 3, Coluna 3
+FASE 4 (Extrao): Item 'Tabela 1, Linha 3, Coluna 3' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 22/52. Origem: Tabela 1, Linha 3, Coluna 1
+FASE 4 (Extrao): Item 'Tabela 1, Linha 3, Coluna 1' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 23/52. Origem: Tabela 1, Linha 2, Coluna 4
+FASE 4 (Extrao): Item 'Tabela 1, Linha 2, Coluna 4' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 24/52. Origem: Tabela 1, Linha 3, Coluna 4
+FASE 4 (Extrao): Item 'Tabela 1, Linha 3, Coluna 4' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 25/52. Origem: Tabela 1, Linha 4, Coluna 1
+FASE 4 (Extrao): Item 'Tabela 1, Linha 4, Coluna 1' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 26/52. Origem: Tabela 1, Linha 4, Coluna 3
+FASE 4 (Extrao): Item 'Tabela 1, Linha 4, Coluna 3' concludo com sucesso.
+
+FASE 4 (Extrao): Processando item 27/52. Origem: Tabela 1, Linha 4, Coluna 4
+FASE 4 (Extrao): Item 'Tabela 1, Linha 4, Coluna 4' concludo com sucesso.

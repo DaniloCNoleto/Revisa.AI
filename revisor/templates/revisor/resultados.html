@@ -1,0 +1,148 @@
+{% extends 'revisor/base.html' %}
+{% block extra_head_scripts %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="content-card content-card-resultados">
+    
+    <h2>Resultados da Revisão - {{ revisao.mode|capfirst }}</h2>
+    <p class="document-name">Documento: <strong>{{ revisao.file_name }}</strong></p>
+    <hr class="header-divider">
+
+    {# --- MODO SIMPLES --- #}
+    {% if revisao.mode == 'simples' %}
+    <div class="dashboard-grid">
+        <div class="metric-card">
+            <h3>Métricas</h3>
+            <p>⏱️ Tempo de Execução: <strong>{{ revisao.duration_seconds|floatformat:1 }} segundos</strong></p>
+            <p>📄 Palavras no Documento: <strong>{{ palavras_entrada }}</strong></p>
+            <p>✍️ Palavras Corrigidas: <strong>{{ palavras_corrigidas }}</strong></p>
+        </div>
+        <div class="glass-chart-container">
+            {{ plot_div|safe }}
+        </div>
+    </div>
+    {% endif %}
+
+
+    {# --- MODO INCONSISTÊNCIAS --- #}
+    {% if revisao.mode == 'inconsistencias' %}
+    <div class="dashboard-grid-single">
+        <div class="kpi-card glass-effect">
+            <span class="kpi-valor">{{ kpi.valor }}</span>
+            <span class="kpi-label">{{ kpi.label }}</span>
+        </div>
+        <div class="metric-card">
+             <h3>Métricas Gerais</h3>
+             <p>⏱️ Tempo de Execução: <strong>{{ revisao.duration_seconds|floatformat:1 }} segundos</strong></p>
+        </div>
+    </div>
+    {% endif %}
+
+
+    {# --- MODO COMPLETA --- #}
+    {% if revisao.mode == 'completa' %}
+    <div class="dashboard-grid">
+        <div class="metric-card">
+            <h3>Métricas</h3>
+            <p>⏱️ Tempo de Execução: <strong>{{ revisao.duration_seconds|floatformat:1 }} segundos</strong></p>
+            <p>✍️ Total de Correções: <strong>{{ palavras_corrigidas }}</strong></p>
+            <hr>
+            <div class="kpi-interno">
+                <span class="kpi-valor-interno">{{ kpi_inconsistencias.valor }}</span>
+                <span class="kpi-label-interno">{{ kpi_inconsistencias.label }}</span>
+            </div>
+        </div>
+        <div class="glass-chart-container">
+            {{ plot_correcoes|safe }}
+        </div>
+    </div>
+    {% endif %}
+
+
+    {# --- SEÇÃO DE DOWNLOADS (UNIFICADA) --- #}
+    {% if arquivos %}
+    <div class="downloads-section">
+        <h3>Downloads</h3>
+        <div class="downloads-container">
+            {% for item in arquivos %}
+                <a href="{{ item.file }}" target="_blank" class="download-btn">{{ item.label }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+<style>
+    :root {
+        --card-bg-light: rgba(248, 249, 250, 0.8);
+        --card-bg-dark: rgba(44, 44, 46, 0.7);
+        --glass-border-light: rgba(0, 0, 0, 0.1);
+        --glass-border-dark: rgba(255, 255, 255, 0.2);
+        --text-color-light: #212529;
+        --text-color-dark: #f0f0f0;
+        --accent-color: #00af74;
+        --danger-color: #ff4d4d;
+    }
+
+    /* Layout Principal e Correção de Rolagem */
+    .content-card-resultados {
+        max-width: 1200px; /* Previne que a página fique larga demais */
+        margin: 20px auto; /* Centraliza o conteúdo */
+        padding: 25px;
+    }
+    /* A regra mais importante para garantir a rolagem */
+    body {
+        overflow-y: auto !important; 
+    }
+
+    .document-name { color: #888; margin-bottom: 20px; }
+    .header-divider { border: 0; height: 1px; background: var(--glass-border-light); margin-bottom: 25px; }
+
+    /* Grids */
+    .dashboard-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 25px; align-items: flex-start;width: 100%;}
+    .dashboard-grid-single { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+
+    /* Efeito Glass para o container do gráfico */
+    .glass-chart-container, .glass-effect {
+        background: var(--card-bg-light);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--glass-border-light);
+        border-radius: 16px;
+        padding: 15px;
+        height: 100%;
+    }
+
+    .metric-card { padding: 25px; }
+    .metric-card h3 { margin-top: 0; padding-bottom: 10px; margin-bottom: 15px; }
+    .metric-card p { margin-bottom: 12px; font-size: 1rem; }
+
+    .kpi-card { padding: 25px; text-align: center; }
+    .kpi-valor { font-size: 4rem; font-weight: 700; display: block; line-height: 1; color: var(--accent-color); }
+    .kpi-label { font-size: 1.1rem; color: var(--text-color-light); margin-top: 10px; }
+    .kpi-interno { text-align: center; margin-top: 20px; }
+    .kpi-valor-interno { font-size: 2.5rem; font-weight: 700; color: var(--danger-color); }
+    .kpi-label-interno { font-size: 0.9rem; display: block; }
+    
+    .downloads-section { margin-top: 30px; }
+    .downloads-section h3 { border-top: 1px solid var(--glass-border-light); padding-top: 20px; }
+    .downloads-container { display: flex; flex-wrap: wrap; gap: 15px; }
+    .download-btn { background-color: var(--accent-color); color: white; text-decoration: none; padding: 12px 20px; border-radius: 8px; transition: background-color 0.2s; }
+    .download-btn:hover { background-color: #008a5c; }
+    
+    /* Responsividade */
+    @media (max-width: 992px) {
+        .dashboard-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Dark Mode */
+    @media (prefers-color-scheme: dark) {
+        .header-divider, .metric-card h3 { background: var(--glass-border-dark); border-color: var(--glass-border-dark); }
+        .glass-chart-container, .glass-effect { background: var(--card-bg-dark); border-color: var(--glass-border-dark); }
+        .kpi-label { color: var(--text-color-dark); }
+    }
+</style>
+{% endblock %}

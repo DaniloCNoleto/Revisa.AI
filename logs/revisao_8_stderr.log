@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\Danilo\OneDrive\Área de Trabalho\Revisor de texto\Edição separada\revisor final\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 335, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Danilo\OneDrive\Área de Trabalho\Revisor de texto\Edição separada\revisor final\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 263, in main
+    print(f"\n\U0001f4c2 Documento a processar: {arquivos_para_processar}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Danilo\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f4c2' in position 2: character maps to <undefined>

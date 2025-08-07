@@ -1,0 +1,19 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros_contradicoes_KYZSJS3.docx' copiado para a pasta 'C:\Users\Danilo\Downloads\dossel_project\media\entrada'.
+
+ Documento a processar: documento_teste_erros_contradicoes_KYZSJS3.docx
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 48)
+
+ Iniciando processamento de 'Processador_Unificado.py' para o documento 'documento_teste_erros_contradicoes_KYZSJS3.docx'.
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\Processador_Unificado.py documento_teste_erros_contradicoes_KYZSJS3.docx --id_revisao 48
+
+ Iniciando processamento completo para: documento_teste_erros_contradicoes_KYZSJS3.docx
+  FASE 0: Mapeando contedo e etiquetando origens (verso completa)...
+  Mapeando contedo de tabelas...
+  Mapeando contedo de cabealhos e rodaps...
+  Mapeamento concludo. 52 itens de contedo etiquetados (incluindo tabelas, cabealhos e rodaps).
+  FASE 3: Verificao Cruzada de Citaes iniciada.
+  FASE 4: Anlise Multimodal e Global de Contradies iniciada.

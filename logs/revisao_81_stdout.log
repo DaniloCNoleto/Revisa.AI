@@ -1,0 +1,38 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+
+ Documento a processar: documento teste1_8n1wUwq.docx
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 81)
+
+ Iniciando processamento de 'Processador_Unificado.py' para o documento 'documento teste1_8n1wUwq.docx'.
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\Processador_Unificado.py documento teste1_8n1wUwq.docx --id_revisao 81
+
+ Iniciando processamento completo para: documento teste1_8n1wUwq.docx
+  FASE 0: Mapeando contedo e etiquetando origens (verso completa)...
+  Mapeando contedo de tabelas...
+  Mapeando contedo de cabealhos e rodaps...
+  Mapeamento concludo. 52 itens de contedo etiquetados (incluindo tabelas, cabealhos e rodaps).
+  FASE 3: Verificao Cruzada de Citaes iniciada.
+
+--- INICIANDO FASE 4: Anlise Avanada ---
+  FASE 4.1: Executando validaes locais (baseadas em regras)...
+    Validaes locais concludas. Encontrado(s) 0 problema(s).
+  FASE 4.2: Executando anlise crtica e multimodal com IA...
+  FASE 4.3: Enviando dossi consolidado para anlise final...
+ Documento revisado salvo em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento teste1_8n1wUwq\documento teste1_8n1wUwq_revisao_completa.docx
+ Planilha de resultados detalhada salva em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento teste1_8n1wUwq\avaliacao_completa.xlsx
+ Relatrio tcnico salvo em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento teste1_8n1wUwq\relatorio_tecnico_documento teste1_8n1wUwq.docx
+
+ Processamento completo finalizado com sucesso.
+ Concluído OK: 'Processador_Unificado.py' para 'documento teste1_8n1wUwq.docx'
+ Progresso atualizado para: 95% (ID da Revisão: 81)
+ Processamento finalizado com sucesso. Gerando relatórios finais...
+Atualizando planilha mestra de rastreamento...
+Planilha mestra atualizada com sucesso.
+Enviando planilha mestra para n.danilo@dosselambiental.com.br...
+Planilha mestra enviada com sucesso.
+E-mail de conclusão enviado com sucesso para n.danilo@dosselambiental.com.br.
+ Progresso atualizado para: 100% (ID da Revisão: 81)
+ Gerenciador finalizou a execução.

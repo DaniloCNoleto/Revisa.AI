@@ -1,0 +1,11 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros (1)_TGcT4Eu.docx' copiado para a pasta 'C:\Users\Danilo\Downloads\dossel_project\media\entrada'.
+
+ Documento a processar: ['documento_teste_erros (1)_TGcT4Eu.docx']
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 37)
+
+ Iniciando processamento paralelo de 'Scripts\Mapeador_Completo.py' para 1 documento(s).
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\Mapeador_Completo.py documento_teste_erros (1)_TGcT4Eu.docx --id_revisao 37

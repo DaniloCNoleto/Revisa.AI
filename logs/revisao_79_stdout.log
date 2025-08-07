@@ -1,0 +1,21 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+
+ Documento a processar: documento teste1_KJIPwNR.docx
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 79)
+
+ Iniciando processamento de 'Processador_Unificado.py' para o documento 'documento teste1_KJIPwNR.docx'.
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\Processador_Unificado.py documento teste1_KJIPwNR.docx --id_revisao 79
+   Erro durante a execução de 'Processador_Unificado.py'. Código: 1
+   Saída de erro:
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Processador_Unificado.py", line 254
+    progresso = tqdm(as_completed(future_map), total=len(future_map), desc="FASE 2: Revisando", disable=DISABLE_TQDM, disable=DISABLE_TQDM)
+                                                                                                                      ^^^^^^^^^^^^^^^^^^^^
+SyntaxError: keyword argument repeated: disable
+
+ Houve uma falha durante o processamento de 'Processador_Unificado.py'.
+ Falhas durante o processamento. O processo pode ter sido cancelado ou encontrado um erro.
+ Progresso atualizado para: 100% (ID da Revisão: 79)
+ Gerenciador finalizou a execução.

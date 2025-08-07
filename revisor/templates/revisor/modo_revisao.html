@@ -1,0 +1,75 @@
+{% extends 'revisor/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-card">
+    <h2>Escolha o Modo de Revisão</h2>
+    <p>Documento a ser revisado: <strong>{{ file_name }}</strong></p>
+
+    {# --- FORMULÁRIO REESTRUTURADO PARA MÁXIMA COMPATIBILIDADE --- #}
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="modo-options">
+            <div class="modo-option">
+                <input type="radio" id="modo_completa" name="modo" value="completa" required>
+                <label for="modo_completa">
+                    <strong>Revisão Completa</strong>
+                    <span>(Análise textual, bibliográfica, de imagens e de inconsistências globais.)</span>
+                </label>
+            </div>
+
+            <div class="modo-option">
+                <input type="radio" id="modo_simples" name="modo" value="simples">
+                <label for="modo_simples">
+                    <strong>Revisão Simples</strong>
+                    <span>(Correções rápidas de gramática e ortografia.)</span>
+                </label>
+            </div>
+
+            <div class="modo-option">
+                <input type="radio" id="modo_inconsistencias" name="modo" value="inconsistencias">
+                <label for="modo_inconsistencias">
+                    <strong>Verificar Inconsistências</strong>
+                    <span>(Apenas leitura. Gera um relatório de inconsistências sem alterar o documento.)</span>
+                </label>
+            </div>
+        </div>
+
+        {# Um único botão de envio para o formulário #}
+        <button type="submit" class="btn-main">Iniciar Revisão</button>
+    </form>
+</div>
+
+<style>
+.modo-revisao-form { margin-top: 20px; }
+.modo-options { margin-bottom: 25px; }
+.modo-option {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.modo-option:hover { background-color: #f8f9fa; }
+.modo-option input[type="radio"] {
+    margin-top: 5px;
+    margin-right: 15px;
+}
+.modo-option label { cursor: pointer; width: 100%; }
+.modo-option label span {
+    display: block;
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-top: 5px;
+}
+@media (prefers-color-scheme: dark) {
+    .modo-option { border-color: #444; }
+    .modo-option:hover { background-color: #3a3a3c; }
+    .modo-option label span { color: #aaa; }
+}
+</style>
+
+{% endblock %}

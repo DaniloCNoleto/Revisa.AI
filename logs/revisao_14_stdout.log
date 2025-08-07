@@ -1,0 +1,23 @@
+
+ Executando: C:\Users\Danilo\OneDrive\Área de Trabalho\Revisor de texto\Edição separada\revisor final\dossel_project\venv\scripts\python.exe Scripts\Mapeador_Completo.py documento_teste_erros (1)_TkytgGW.docx
+ Concluído: 'Scripts\Mapeador_Completo.py' para 'documento_teste_erros (1)_TkytgGW.docx'.
+
+ Executando: C:\Users\Danilo\OneDrive\Área de Trabalho\Revisor de texto\Edição separada\revisor final\dossel_project\venv\scripts\python.exe Scripts\Processador_Final_Dossel.py documento_teste_erros (1)_TkytgGW
+ Concluído: 'Scripts\Processador_Final_Dossel.py' para 'documento_teste_erros (1)_TkytgGW'.
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros (1)_TkytgGW.docx' copiado para a pasta 'C:\Users\Danilo\OneDrive\Área de Trabalho\Revisor de texto\Edição separada\revisor final\dossel_project\media\entrada'.
+
+ Documento a processar: ['documento_teste_erros (1)_TkytgGW.docx']
+ Modo de revisão: completa
+ E-mail destino: danilocnoleto95@hotmail.com
+ Progresso atualizado para: 5% (ID da Revisão: 14)
+
+ Iniciando processamento paralelo de 'Scripts\Mapeador_Completo.py' para 1 documento(s).
+ Progresso atualizado para: 25% (ID da Revisão: 14)
+
+ Iniciando processamento paralelo de 'Scripts\Processador_Final_Dossel.py' para 1 documento(s).
+ Progresso atualizado para: 95% (ID da Revisão: 14)
+ Processamento finalizado com sucesso.
+ Erro ao enviar e-mail: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-241d1f0e81dsm1372245ad.46 - gsmtp')
+ Progresso atualizado para: 100% (ID da Revisão: 14)
+ Gerenciador finalizou a execução.

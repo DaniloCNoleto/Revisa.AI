@@ -1,0 +1,29 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros_contradicoes_zpSrxVK.docx' copiado para a pasta 'C:\Users\Danilo\Downloads\dossel_project\media\entrada'.
+
+ Documento a processar: documento_teste_erros_contradicoes_zpSrxVK.docx
+ Modo de revisão: simples
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 54)
+
+ Iniciando processamento de 'Revisor_Textual_Estruturado.py' para o documento 'documento_teste_erros_contradicoes_zpSrxVK.docx'.
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\Revisor_Textual_Estruturado.py documento_teste_erros_contradicoes_zpSrxVK.docx --id_revisao 54
+
+ Iniciando Reviso Textual Estruturada para: documento_teste_erros_contradicoes_zpSrxVK.docx
+  FASE 0: Coleta concluda. 52 blocos de texto encontrados.
+ Documento com reviso simples salvo em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento_teste_erros_contradicoes_zpSrxVK\documento_teste_erros_contradicoes_zpSrxVK_revisao_simples.docx
+ Planilha de resultados simples salva em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento_teste_erros_contradicoes_zpSrxVK\relatorio_revisao_simples.xlsx
+ Relatrio tcnico (.docx) salvo em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento_teste_erros_contradicoes_zpSrxVK\relatorio_tecnico_simples_documento_teste_erros_contradicoes_zpSrxVK.docx
+
+ Processo de reviso estruturada finalizado.
+ Concluído OK: 'Revisor_Textual_Estruturado.py' para 'documento_teste_erros_contradicoes_zpSrxVK.docx'
+ Progresso atualizado para: 95% (ID da Revisão: 54)
+ Processamento finalizado com sucesso. Gerando relatórios finais...
+Atualizando planilha mestra de rastreamento...
+Planilha mestra atualizada com sucesso.
+Enviando planilha mestra para n.danilo@dosselambiental.com.br...
+Planilha mestra enviada com sucesso.
+E-mail de conclusão enviado com sucesso para n.danilo@dosselambiental.com.br.
+ Progresso atualizado para: 100% (ID da Revisão: 54)
+ Gerenciador finalizou a execução.

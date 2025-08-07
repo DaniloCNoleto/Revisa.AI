@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 327, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 270, in main
+    if processar_em_paralelo(SCRIPT_MAPEADOR, arquivos_para_processar):
+       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: processar_em_paralelo() missing 1 required positional argument: 'id_revisao'

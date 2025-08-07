@@ -1,0 +1,28 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros_contradicoes_6D442rj.docx' copiado para a pasta 'C:\Users\Danilo\Downloads\dossel_project\media\entrada'.
+
+ Documento a processar: documento_teste_erros_contradicoes_6D442rj.docx
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 44)
+
+ Iniciando processamento de 'Processador_Unificado.py' para o documento 'documento_teste_erros_contradicoes_6D442rj.docx'.
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\Processador_Unificado.py documento_teste_erros_contradicoes_6D442rj.docx --id_revisao 44
+   Erro durante a execução de 'Processador_Unificado.py'. Código: 1
+   Saída de erro:
+Traceback (most recent call last):
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Processador_Unificado.py", line 346, in <module>
+    sucesso = processar_documento(args.arquivo, args.id_revisao)
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Processador_Unificado.py", line 284, in processar_documento
+    print(f"\n\U0001f680 Iniciando processamento completo para: {nome_arquivo}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Danilo\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f680' in position 2: character maps to <undefined>
+
+ Houve uma falha durante o processamento de 'Processador_Unificado.py'.
+ Falhas durante o processamento. O processo pode ter sido cancelado ou encontrado um erro.
+ Progresso atualizado para: 100% (ID da Revisão: 44)
+ Gerenciador finalizou a execução.

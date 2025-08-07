@@ -1,0 +1,28 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+
+ Documento a processar: documento teste1_jbFQOTY.docx
+ Modo de revisão: inconsistencias
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 74)
+
+ Iniciando processamento de 'verificador_contradicoes_globais.py' para o documento 'documento teste1_jbFQOTY.docx'.
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\verificador_contradicoes_globais.py documento teste1_jbFQOTY.docx --id_revisao 74
+
+ Iniciando Verificador de Contradies para: documento teste1_jbFQOTY.docx
+  Mapeando contedo e etiquetando origens...
+ ERRO FATAL ao analisar documento teste1_jbFQOTY:
+   Erro durante a execução de 'verificador_contradicoes_globais.py'. Código: 1
+   Saída de erro:
+Traceback (most recent call last):
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\verificador_contradicoes_globais.py", line 174, in analisar_documento
+    itens_documento = mapear_conteudo_do_documento(doc)
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\verificador_contradicoes_globais.py", line 148, in mapear_conteudo_do_documento
+    for c_idx, cell in enumerate(table.cells):
+                                 ^^^^^^^^^^^
+AttributeError: 'Table' object has no attribute 'cells'. Did you mean: 'cell'?
+
+ Houve uma falha durante o processamento de 'verificador_contradicoes_globais.py'.
+ Falhas durante o processamento. O processo pode ter sido cancelado ou encontrado um erro.
+ Progresso atualizado para: 100% (ID da Revisão: 74)
+ Gerenciador finalizou a execução.

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 326, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 269, in main
+    if processar_em_paralelo(SCRIPT_MAPEADOR, arquivos_para_processar):
+       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 203, in processar_em_paralelo
+    args = [(script, nome, id_revisao) for nome in nomes_arquivos_com_extensao]
+                           ^^^^^^^^^^
+NameError: name 'id_revisao' is not defined

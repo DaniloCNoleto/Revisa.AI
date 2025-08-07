@@ -1,0 +1,20 @@
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe Scripts\Mapeador_Completo.py documento_teste_erros (1)_iJ9Q1P9.docx None
+   Erro durante a execução de 'Scripts\Mapeador_Completo.py'. Código de retorno: 2
+   Saída de erro:
+usage: Mapeador_Completo.py [-h] --id_revisao ID_REVISAO arquivo
+Mapeador_Completo.py: error: the following arguments are required: --id_revisao
+
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros (1)_iJ9Q1P9.docx' copiado para a pasta 'C:\Users\Danilo\Downloads\dossel_project\media\entrada'.
+
+ Documento a processar: ['documento_teste_erros (1)_iJ9Q1P9.docx']
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 29)
+
+ Iniciando processamento paralelo de 'Scripts\Mapeador_Completo.py' para 1 documento(s).
+ Houve falhas durante o processamento paralelo de 'Scripts\Mapeador_Completo.py'.
+ Falhas durante o processamento. O processo pode ter sido cancelado.
+ Progresso atualizado para: 100% (ID da Revisão: 29)
+ Gerenciador finalizou a execução.

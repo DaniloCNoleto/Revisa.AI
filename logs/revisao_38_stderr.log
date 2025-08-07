@@ -1,0 +1,25 @@
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\Danilo\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 191, in rodar_script
+    stderr_output = proc.stderr.read()
+ValueError: I/O operation on closed file.
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 337, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 281, in main
+    if not processar_em_paralelo(SCRIPT_PROCESSADOR_COMPLETO, nomes_base_docs, id_revisao_alvo):
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 216, in processar_em_paralelo
+    resultados = list(pool.imap_unordered(rodar_script, args))
+  File "C:\Users\Danilo\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\pool.py", line 873, in next
+    raise value
+ValueError: I/O operation on closed file.

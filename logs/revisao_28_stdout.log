@@ -1,0 +1,42 @@
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe Scripts\Mapeador_Completo.py documento_teste_erros (1)_ARjOblI.docx
+   Erro durante a execução de 'Scripts\Mapeador_Completo.py'. Código de retorno: 1
+   Saída de erro:
+
+\U0001f4ca Analisando documento_teste_erros (1):   0%|          | 0/4 [00:00<?, ?bloco/s]C:\Users\Danilo\Downloads\dossel_project\Scripts\Mapeador_Completo.py:122: DeprecationWarning: The Assistants API is deprecated in favor of the Responses API
+  thread = openai.beta.threads.create()
+C:\Users\Danilo\Downloads\dossel_project\Scripts\Mapeador_Completo.py:123: DeprecationWarning: The Assistants API is deprecated in favor of the Responses API
+  openai.beta.threads.messages.create(thread_id=thread.id, role="user", content=prompt)
+C:\Users\Danilo\Downloads\dossel_project\Scripts\Mapeador_Completo.py:124: DeprecationWarning: The Assistants API is deprecated in favor of the Responses API
+  run = openai.beta.threads.runs.create(thread_id=thread.id, assistant_id=assistant_id)
+C:\Users\Danilo\Downloads\dossel_project\Scripts\Mapeador_Completo.py:128: DeprecationWarning: The Assistants API is deprecated in favor of the Responses API
+  run = openai.beta.threads.runs.retrieve(thread_id=thread.id, run_id=run.id)
+C:\Users\Danilo\Downloads\dossel_project\Scripts\Mapeador_Completo.py:131: DeprecationWarning: The Assistants API is deprecated in favor of the Responses API
+  msgs = openai.beta.threads.messages.list(thread_id=thread.id, order="desc")
+
+\U0001f4ca Analisando documento_teste_erros (1):  25%|##5       | 1/4 [00:17<00:53, 17.79s/bloco]
+\U0001f4ca Analisando documento_teste_erros (1):  75%|#######5  | 3/4 [00:24<00:06,  6.98s/bloco]
+\U0001f4ca Analisando documento_teste_erros (1): 100%|##########| 4/4 [00:25<00:00,  4.99s/bloco]
+\U0001f4ca Analisando documento_teste_erros (1): 100%|##########| 4/4 [00:25<00:00,  6.35s/bloco]
+Traceback (most recent call last):
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Mapeador_Completo.py", line 337, in <module>
+    mapear_documento_completo(nome_do_arquivo)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Mapeador_Completo.py", line 284, in mapear_documento_completo
+    QueueEntry.objects.filter(id=ID_REVISAO).update(
+                                 ^^^^^^^^^^
+NameError: name 'ID_REVISAO' is not defined
+
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros (1)_ARjOblI.docx' copiado para a pasta 'C:\Users\Danilo\Downloads\dossel_project\media\entrada'.
+
+ Documento a processar: ['documento_teste_erros (1)_ARjOblI.docx']
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 28)
+
+ Iniciando processamento paralelo de 'Scripts\Mapeador_Completo.py' para 1 documento(s).
+ Houve falhas durante o processamento paralelo de 'Scripts\Mapeador_Completo.py'.
+ Falhas durante o processamento. O processo pode ter sido cancelado.
+ Progresso atualizado para: 100% (ID da Revisão: 28)
+ Gerenciador finalizou a execução.

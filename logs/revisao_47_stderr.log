@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 325, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 264, in main
+    if not processar_documento_unico(script_alvo, nome_arquivo_original, id_revisao_alvo):
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 207, in processar_documento_unico
+    resultado = rodar_script((script, nome_arquivo_com_extensao, id_revisao))
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 195, in rodar_script
+    time.sleep(2)
+    ~~~~~~~~~~^^^
+KeyboardInterrupt

@@ -1,0 +1,25 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros (1)_MOBTmmU.docx' copiado para a pasta 'C:\Users\Danilo\Downloads\dossel_project\media\entrada'.
+
+ Documento a processar: ['documento_teste_erros (1)_MOBTmmU.docx']
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 38)
+
+ Iniciando processamento paralelo de 'Scripts\Mapeador_Completo.py' para 1 documento(s).
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\Scripts\python.exe -u Scripts\Mapeador_Completo.py documento_teste_erros (1)_MOBTmmU.docx --id_revisao 38
+
+ Processando: documento_teste_erros (1)_MOBTmmU.docx
+ Encontrados 4 blocos de texto para anlise.
+ Anlise completa salva em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento_teste_erros (1)_MOBTmmU\mapeamento_completo.json
+ Planilha de anlise salva em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento_teste_erros (1)_MOBTmmU\mapeamento_completo.xlsx
+
+ Processo concludo para o arquivo nico.
+
+ Concluído OK: 'Scripts\Mapeador_Completo.py' para 'documento_teste_erros (1)_MOBTmmU.docx'
+ Progresso atualizado para: 25% (ID da Revisão: 38)
+
+ Iniciando processamento paralelo de 'Scripts\Processador_Final_Dossel.py' para 1 documento(s).
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\Scripts\python.exe -u Scripts\Processador_Final_Dossel.py documento_teste_erros (1)_MOBTmmU --id_revisao 38

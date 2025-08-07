@@ -1,0 +1,23 @@
+
+ Executando: C:\Users\Danilo\OneDrive\Área de Trabalho\Revisor de texto\Edição separada\revisor final\dossel_project\venv\scripts\python.exe Scripts\Mapeador_Completo.py documento_teste_erros (1)_cxyWxCp.docx
+ Concluído: 'Scripts\Mapeador_Completo.py' para 'documento_teste_erros (1)_cxyWxCp.docx'.
+
+ Executando: C:\Users\Danilo\OneDrive\Área de Trabalho\Revisor de texto\Edição separada\revisor final\dossel_project\venv\scripts\python.exe Scripts\Processador_Final_Dossel.py documento_teste_erros (1)_cxyWxCp
+ Concluído: 'Scripts\Processador_Final_Dossel.py' para 'documento_teste_erros (1)_cxyWxCp'.
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros (1)_cxyWxCp.docx' copiado para a pasta 'C:\Users\Danilo\OneDrive\Área de Trabalho\Revisor de texto\Edição separada\revisor final\dossel_project\media\entrada'.
+
+ Documento a processar: ['documento_teste_erros (1)_cxyWxCp.docx']
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 12)
+
+ Iniciando processamento paralelo de 'Scripts\Mapeador_Completo.py' para 1 documento(s).
+ Progresso atualizado para: 25% (ID da Revisão: 12)
+
+ Iniciando processamento paralelo de 'Scripts\Processador_Final_Dossel.py' para 1 documento(s).
+ Progresso atualizado para: 95% (ID da Revisão: 12)
+ Processamento finalizado com sucesso.
+ Erro ao enviar e-mail: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-76408c02627sm11517099b3a.44 - gsmtp')
+ Progresso atualizado para: 100% (ID da Revisão: 12)
+ Gerenciador finalizou a execução.

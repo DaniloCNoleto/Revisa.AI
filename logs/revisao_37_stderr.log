@@ -1,0 +1,15 @@
+Process SpawnPoolWorker-1:
+Traceback (most recent call last):
+  File "C:\Users\Danilo\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\process.py", line 313, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "C:\Users\Danilo\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Danilo\AppData\Local\Programs\Python\Python313\Lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Gerenciador_Revisores_Estruturados.py", line 186, in rodar_script
+    time.sleep(2)
+    ~~~~~~~~~~^^^
+KeyboardInterrupt

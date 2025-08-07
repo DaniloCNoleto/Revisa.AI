@@ -1,0 +1,18 @@
+{# revisor/templates/revisor/activation_invalid.html #}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Link Inválido</title>
+    <link rel="stylesheet" href="{% static 'revisor/style.css' %}">
+    <style>/* Seus estilos CSS */</style>
+</head>
+<body>
+    <div class="message-container">
+        <h1>Link de Ativação Inválido</h1>
+        <p>O link de ativação que você clicou é inválido ou expirou.</p>
+        <p>Por favor, tente registrar-se novamente ou entre em contato com o suporte.</p>
+        <p><a href="{% url 'register' %}">Tentar Registrar Novamente</a></p>
+    </div>
+</body>
+</html>

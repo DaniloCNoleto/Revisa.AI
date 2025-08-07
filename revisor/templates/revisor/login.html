@@ -1,0 +1,345 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Dossel</title>
+    <link rel="stylesheet" href="{% static 'revisor/style.css' %}">
+    <style>
+        :root {
+            --bg-light: #fdfcfb; /* Quase branco da sua paleta e8f4d9 */
+            --bg-dark: #121212;
+            /* A opacidade do box foi ajustada para ser bem transparente para o vidro */
+            --box-light: rgba(255, 255, 255, 0.281); /* Mantenha esse para a transparência do vidro */
+            --box-dark: rgba(0, 0, 0, 0.281); /* Mantenha esse para a transparência do vidro */
+            --text-light: #4d3b20; /* Marrom da sua paleta */
+            --text-dark: #f0f0f0;
+            --border-light: rgba(0, 0, 0, 0.08); /* Borda mais suave para o tema claro */
+            --border-dark: rgba(255, 255, 255, 0.2);
+            --input-bg-light: #ffffff;
+            --input-border-light: #ccc;
+            --input-placeholder-light: #999;
+            --button-bg-light: #00af74; /* Verde da sua paleta */
+            --button-hover-light: #009663; /* Verde um pouco mais escuro para hover */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--bg-light); /* Cor de fundo principal */
+            transition: background-color 0.3s; /* Transição para a cor de fundo */
+            position: relative; /* Necessário para posicionar o ::before */
+            overflow: hidden; /* Garante que a imagem de fundo não vaze */
+        }
+
+        /* Pseudo-elemento para a imagem da floresta, permitindo controle de opacidade separado */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("{% static 'revisor/Floresta_clara.png' %}");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+            /* **OPACIDADE DA IMAGEM DA FLORESTA NO TEMA CLARO** */
+            opacity: 0.4; /* Ajuste este valor. 1.0 é totalmente opaco, 0.0 é totalmente transparente */
+            z-index: -2; /* Coloca a floresta ATRÁS de tudo, inclusive da background-logo */
+            transition: opacity 0.5s ease;
+        }
+
+        /* 🌗 Dark mode para o body e a imagem da floresta */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: var(--bg-dark);
+            }
+            body::before {
+                background-image: url("{% static 'revisor/Floresta_escura.png' %}");
+                /* **OPACIDADE DA IMAGEM DA FLORESTA NO TEMA ESCURO** */
+                opacity: 0.4; /* Ajuste este valor para o tema escuro. Pode ser diferente do claro */
+            }
+        }
+
+        /* Estilo para a logo pequena da empresa no topo e à esquerda (logo_dossel.png) */
+        .top-left-logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 150px; /* Ajuste o tamanho */
+            z-index: 100; /* Garante que fique acima de tudo */
+        }
+
+        .top-left-logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Estilo para a logo GRANDE de fundo centralizada (logo_dossel2.png) */
+        .background-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centraliza perfeitamente */
+            width: 60%; /* Ajuste o tamanho da logo de fundo */
+            max-width: 800px; /* Limite o tamanho máximo */
+            z-index: -1; /* Coloca a background-logo ATRÁS do login-container, mas ACIMA da floresta (z-index -2) */
+            opacity: 1; /* Opacidade da LOGO GRANDE para o tema claro (ajuste conforme o desejado) */
+            transition: opacity 0.3s ease;
+        }
+
+        .background-logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .background-logo {
+                opacity: 1; /* Opacidade da LOGO GRANDE para o tema escuro */
+            }
+        }
+
+        /* Login container específico */
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 95%;
+            max-width: 480px; /* Ajustado */
+            padding: 2.5rem;
+            box-sizing: border-box;
+
+            /* Propriedades para o efeito de vidro */
+            background-color: var(--box-light); /* */
+            backdrop-filter: blur(10px) saturate(180%); /* */
+            -webkit-backdrop-filter: blur(10px) saturate(180%); /* */
+
+            border-radius: 15px; /* */
+            border: 1px solid var(--border-light); /* */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* */
+
+            text-align: center;
+            color: var(--text-light); /* */
+            transition: background-color 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;
+
+            position: relative; /* Cria um novo contexto de empilhamento */
+            z-index: 1; /* Garante que o login-container esteja acima da background-logo e da floresta */
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .login-container {
+                background-color: var(--box-dark); /* */
+                border: 1px solid var(--border-dark); /* */
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* */
+                color: var(--text-dark); /* */
+            }
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #00af74; /* Cor para "Login" no tema claro */
+        }
+        @media (prefers-color-scheme: dark) {
+            h2 {
+                color: #f5f7f6; /* Cor para "Login" no tema escuro */
+            }
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--input-border-light);
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+            background-color: var(--input-bg-light);
+            color: var(--text-light);
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="password"]::placeholder {
+            color: var(--input-placeholder-light);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            input[type="text"],
+            input[type="password"] {
+                background-color: #1f1f1f;
+                color: var(--text-dark);
+                border: 1px solid #555;
+            }
+            input[type="text"]::placeholder,
+            input[type="password"]::placeholder {
+                color: #aaa;
+            }
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--button-bg-light);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--button-hover-light);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            button {
+                background-color: #00bfa5;
+            }
+            button:hover {
+                background-color: #009e88;
+            }
+        }
+
+        .register-link {
+            margin-top: 15px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .register-link a {
+            color: #00af74;
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .register-link {
+                color: var(--text-dark);
+            }
+            .register-link a {
+                color: #00bfa5;
+            }
+        }
+
+        /* Estilo para as mensagens do Django */
+        ul.messages {
+            list-style: none;
+            padding: 0;
+            margin: -15px 0 15px 0; /* Ajusta o espaçamento */
+            width: 100%;
+            text-align: center;
+        }
+
+        ul.messages li {
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        ul.messages li.success {
+            background-color: #d4edda; /* Verde claro */
+            color: #155724; /* Verde escuro */
+            border: 1px solid #c3e6cb;
+        }
+
+        ul.messages li.error {
+            background-color: #f8d7da; /* Vermelho claro */
+            color: #721c24; /* Vermelho escuro */
+            border: 1px solid #f5c6cb;
+        }
+
+        ul.messages li.info {
+            background-color: #d1ecf1; /* Azul claro */
+            color: #0c5460; /* Azul escuro */
+            border: 1px solid #bee5eb;
+        }
+
+        /* Dark mode para mensagens */
+        @media (prefers-color-scheme: dark) {
+            ul.messages li.success {
+                background-color: #28a745; /* Verde mais escuro */
+                color: #fff;
+            }
+            ul.messages li.error {
+                background-color: #dc3545; /* Vermelho mais escuro */
+                color: #fff;
+            }
+            ul.messages li.info {
+                background-color: #17a2b8; /* Azul mais escuro */
+                color: #fff;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-logo">
+        <img src="{% static 'revisor/logo_dossel2.png' %}" alt="Dossel Background Logo">
+    </div>
+
+    <div class="top-left-logo">
+        <img src="{% static 'revisor/logo_dossel.png' %}" alt="Dossel Logo">
+    </div>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        {# Exibir mensagens do Django #}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {# Exibir erro específico da view, se houver (mantido para compatibilidade, mas messages é preferível) #}
+        {% if error %}
+            <p style="color:red; margin-bottom: 15px; font-weight: bold;">{{ error }}</p>
+            <script>
+                // Adiciona a classe 'shake' ao container quando há um erro
+                const loginContainer = document.querySelector('.login-container');
+                loginContainer.classList.add('shake');
+
+                // Remove a classe 'shake' após a animação para que possa ser acionada novamente
+                loginContainer.addEventListener('animationend', () => {
+                    loginContainer.classList.remove('shake');
+                }, { once: true }); // 'once: true' garante que o listener seja removido após uma execução
+            </script>
+        {% endif %}
+        <form method="post" action="{% url 'login' %}"> {# APONTA PARA A URL DE LOGIN NO DJANGO #}
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Usuário" required>
+            <input type="password" name="password" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <div class="register-link">
+            <p><a href="{% url 'password_reset' %}" style="font-size: 13px;">Esqueceu a senha?</a></p>
+            <p>Não tem conta? <a href="{% url 'register' %}">Registrar-se</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
+{% comment %}
+    Este é o template de login do Dossel, que inclui:
+    - Estilo responsivo e adaptável a temas claros e escuros.
+    - Efeito de vidro para o container de login.
+    - Mensagens de feedback do Django.
+    - Links para recuperação de senha e registro.
+{% endcomment %}

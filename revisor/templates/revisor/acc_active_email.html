@@ -1,0 +1,13 @@
+{# revisor/templates/revisor/acc_active_email.html #}
+Olá {{ user.first_name }},
+
+Obrigado por se registrar no Revisor de Texto da Dossel Ambiental!
+
+Por favor, clique no link abaixo para ativar sua conta:
+
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+Se você não se registrou na Dossel Ambiental, por favor, ignore este e-mail.
+
+Atenciosamente,
+Equipe Dossel Ambiental

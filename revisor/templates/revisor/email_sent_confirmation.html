@@ -1,0 +1,18 @@
+{# revisor/templates/revisor/email_sent_confirmation.html #}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmação de E-mail</title>
+    <link rel="stylesheet" href="{% static 'revisor/style.css' %}">
+    <style>/* Seus estilos CSS para centralizar, etc. */</style>
+</head>
+<body>
+    <div class="message-container">
+        <h1>Verifique seu E-mail</h1>
+        <p>Um link de ativação foi enviado para o seu endereço de e-mail. Por favor, clique no link para ativar sua conta.</p>
+        <p>Se você não receber o e-mail em alguns minutos, verifique sua pasta de spam ou tente registrar novamente.</p>
+        <p><a href="{% url 'login' %}">Voltar para o Login</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros (1)_YK8xoAs.docx' copiado para a pasta 'C:\Users\Danilo\Downloads\dossel_project\media\entrada'.
+
+ Documento a processar: ['documento_teste_erros (1)_YK8xoAs.docx']
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 39)
+
+ Iniciando processamento paralelo de 'Scripts\Mapeador_Completo.py' para 1 documento(s).
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\Scripts\python.exe -u Scripts\Mapeador_Completo.py documento_teste_erros (1)_YK8xoAs.docx --id_revisao 39
+ Concluído OK: 'Scripts\Mapeador_Completo.py' para 'documento_teste_erros (1)_YK8xoAs.docx'
+ Progresso atualizado para: 25% (ID da Revisão: 39)
+
+ Iniciando processamento paralelo de 'Scripts\Processador_Final_Dossel.py' para 1 documento(s).
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\Scripts\python.exe -u Scripts\Processador_Final_Dossel.py documento_teste_erros (1)_YK8xoAs --id_revisao 39
+   Erro durante a execução de 'Scripts\Processador_Final_Dossel.py'. Código: 1
+   Saída de erro:
+C:\Users\Danilo\Downloads\dossel_project\Scripts\Processador_Final_Dossel.py:144: SyntaxWarning: invalid escape sequence '\s'
+  def extrair_resposta_ia(resp: str, padrao_comentario='\U0001f4dc\s*Comentrio'):
+C:\Users\Danilo\Downloads\dossel_project\Scripts\Processador_Final_Dossel.py:220: SyntaxWarning: invalid escape sequence '\s'
+  _, corrigido_ph, just = extrair_resposta_ia(resp, padrao_comentario='\U0001f4dd\s*Justificativa')
+Traceback (most recent call last):
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Processador_Final_Dossel.py", line 20, in <module>
+    load_dotenv(BASE_DIR / ".env")
+    ^^^^^^^^^^^
+NameError: name 'load_dotenv' is not defined
+
+ Houve falhas durante o processamento paralelo de 'Scripts\Processador_Final_Dossel.py'.
+ Falhas durante o processamento. O processo pode ter sido cancelado.
+ Progresso atualizado para: 100% (ID da Revisão: 39)
+ Gerenciador finalizou a execução.

@@ -1,0 +1,25 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros_contradicoes_VE0RRu7.docx' copiado para a pasta 'C:\Users\Danilo\Downloads\dossel_project\media\entrada'.
+
+ Documento a processar: documento_teste_erros_contradicoes_VE0RRu7.docx
+ Modo de revisão: completa
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 45)
+
+ Iniciando processamento de 'Processador_Unificado.py' para o documento 'documento_teste_erros_contradicoes_VE0RRu7.docx'.
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\Processador_Unificado.py documento_teste_erros_contradicoes_VE0RRu7.docx --id_revisao 45
+   Erro durante a execução de 'Processador_Unificado.py'. Código: 1
+   Saída de erro:
+Traceback (most recent call last):
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Processador_Unificado.py", line 288, in processar_documento
+    itens_documento = mapear_conteudo_do_documento(doc)
+  File "C:\Users\Danilo\Downloads\dossel_project\Scripts\Processador_Unificado.py", line 166, in mapear_conteudo_do_documento
+    for c_idx, cell in enumerate(table.cells):
+                                 ^^^^^^^^^^^
+AttributeError: 'Table' object has no attribute 'cells'. Did you mean: 'cell'?
+
+ Houve uma falha durante o processamento de 'Processador_Unificado.py'.
+ Falhas durante o processamento. O processo pode ter sido cancelado ou encontrado um erro.
+ Progresso atualizado para: 100% (ID da Revisão: 45)
+ Gerenciador finalizou a execução.

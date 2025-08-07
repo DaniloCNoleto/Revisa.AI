@@ -1,0 +1,81 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+
+ Documento a processar: documento teste1_asZcoZ1.docx
+ Modo de revisão: inconsistencias
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 78)
+
+ Iniciando processamento de 'verificador_contradicoes_globais.py' para o documento 'documento teste1_asZcoZ1.docx'.
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\verificador_contradicoes_globais.py documento teste1_asZcoZ1.docx --id_revisao 78
+
+ Iniciando Verificador de Contradies para: documento teste1_asZcoZ1.docx
+  Mapeando contedo e etiquetando origens...
+  Mapeamento concludo. 52 itens de contedo etiquetados.
+Analisando item 1/52: Pargrafo 1
+Analisando item 2/52: Pargrafo 2
+Analisando item 3/52: Pargrafo 3
+Analisando item 4/52: Pargrafo 4
+Analisando item 5/52: Pargrafo 5
+Analisando item 6/52: Pargrafo 6
+Analisando item 7/52: Pargrafo 7
+Analisando item 8/52: Pargrafo 8
+Analisando item 9/52: Pargrafo 9
+Analisando item 10/52: Pargrafo 10
+Analisando item 11/52: Pargrafo 11
+Analisando item 12/52: Pargrafo 12
+Analisando item 13/52: tabela_1_linha_1_coluna_1
+Analisando item 14/52: tabela_1_linha_1_coluna_2
+Analisando item 15/52: tabela_1_linha_1_coluna_3
+Analisando item 16/52: tabela_1_linha_1_coluna_4
+Analisando item 17/52: tabela_1_linha_2_coluna_1
+Analisando item 18/52: tabela_1_linha_2_coluna_2
+Analisando item 19/52: tabela_1_linha_2_coluna_3
+Analisando item 20/52: tabela_1_linha_2_coluna_4
+Analisando item 21/52: tabela_1_linha_3_coluna_1
+Analisando item 22/52: tabela_1_linha_3_coluna_2
+Analisando item 23/52: tabela_1_linha_3_coluna_3
+Analisando item 24/52: tabela_1_linha_3_coluna_4
+Analisando item 25/52: tabela_1_linha_4_coluna_1
+Analisando item 26/52: tabela_1_linha_4_coluna_2
+Analisando item 27/52: tabela_1_linha_4_coluna_3
+Analisando item 28/52: tabela_1_linha_4_coluna_4
+Analisando item 29/52: tabela_1_linha_5_coluna_1
+Analisando item 30/52: tabela_1_linha_5_coluna_2
+Analisando item 31/52: tabela_1_linha_5_coluna_3
+Analisando item 32/52: tabela_1_linha_5_coluna_4
+Analisando item 33/52: tabela_2_linha_1_coluna_1
+Analisando item 34/52: tabela_2_linha_1_coluna_2
+Analisando item 35/52: tabela_2_linha_1_coluna_3
+Analisando item 36/52: tabela_2_linha_1_coluna_4
+Analisando item 37/52: tabela_2_linha_2_coluna_1
+Analisando item 38/52: tabela_2_linha_2_coluna_2
+Analisando item 39/52: tabela_2_linha_2_coluna_3
+Analisando item 40/52: tabela_2_linha_2_coluna_4
+Analisando item 41/52: tabela_2_linha_3_coluna_1
+Analisando item 42/52: tabela_2_linha_3_coluna_2
+Analisando item 43/52: tabela_2_linha_3_coluna_3
+Analisando item 44/52: tabela_2_linha_3_coluna_4
+Analisando item 45/52: tabela_2_linha_4_coluna_1
+Analisando item 46/52: tabela_2_linha_4_coluna_2
+Analisando item 47/52: tabela_2_linha_4_coluna_3
+Analisando item 48/52: tabela_2_linha_4_coluna_4
+Analisando item 49/52: tabela_2_linha_5_coluna_1
+Analisando item 50/52: tabela_2_linha_5_coluna_2
+Analisando item 51/52: tabela_2_linha_5_coluna_3
+Analisando item 52/52: tabela_2_linha_5_coluna_4
+  Enviando dossi consolidado para anlise final de contradies.
+ Planilha de anlise e custos salva em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento teste1_asZcoZ1\relatorio_inconsistencias_documento teste1_asZcoZ1.xlsx
+ Relatrio tcnico de anlise salvo em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento teste1_asZcoZ1\relatorio_tecnico_inconsistencias_documento teste1_asZcoZ1.docx
+
+ Processo de verificao de contradies finalizado.
+ Concluído OK: 'verificador_contradicoes_globais.py' para 'documento teste1_asZcoZ1.docx'
+ Progresso atualizado para: 95% (ID da Revisão: 78)
+ Processamento finalizado com sucesso. Gerando relatórios finais...
+Atualizando planilha mestra de rastreamento...
+Planilha mestra atualizada com sucesso.
+Enviando planilha mestra para n.danilo@dosselambiental.com.br...
+Planilha mestra enviada com sucesso.
+E-mail de conclusão enviado com sucesso para n.danilo@dosselambiental.com.br.
+ Progresso atualizado para: 100% (ID da Revisão: 78)
+ Gerenciador finalizou a execução.

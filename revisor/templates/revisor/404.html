@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Página não encontrada</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 5%; }
+    img { max-width: 300px; margin-bottom: 40px; }
+  </style>
+</head>
+<body>
+  <img src="{% static 'dossel_logo.png' %}" alt="Logo Dossel">
+  <h1>404 - Página não encontrada</h1>
+  <p>Ops! A página que você procura não existe.</p>
+  <a href="{% url 'login' %}">Voltar à página inicial</a>
+</body>
+</html>

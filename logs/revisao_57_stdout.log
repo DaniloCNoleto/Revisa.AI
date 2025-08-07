@@ -1,0 +1,32 @@
+--- GERENCIADOR INICIADO COM SUCESSO ---
+ Arquivo 'documento_teste_erros_contradicoes_wTcRg8v.docx' copiado para a pasta 'C:\Users\Danilo\Downloads\dossel_project\media\entrada'.
+
+ Documento a processar: documento_teste_erros_contradicoes_wTcRg8v.docx
+ Modo de revisão: inconsistencias
+ E-mail destino: n.danilo@dosselambiental.com.br
+ Progresso atualizado para: 5% (ID da Revisão: 57)
+
+ Iniciando processamento de 'verificador_contradicoes_globais.py' para o documento 'documento_teste_erros_contradicoes_wTcRg8v.docx'.
+
+ Executando: C:\Users\Danilo\Downloads\dossel_project\venv\scripts\python.exe -u Scripts\verificador_contradicoes_globais.py documento_teste_erros_contradicoes_wTcRg8v.docx --id_revisao 57
+
+ Iniciando Verificador de Contradies para: documento_teste_erros_contradicoes_wTcRg8v.docx
+  Mapeando contedo e etiquetando origens (verso completa)...
+  Mapeando contedo de tabelas...
+  Mapeando contedo de cabealhos e rodaps...
+  Mapeamento concludo. 52 itens de contedo etiquetados.
+  Enviando dossi consolidado para anlise final de contradies.
+ Planilha de anlise e custos salva em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento_teste_erros_contradicoes_wTcRg8v\relatorio_inconsistencias_documento_teste_erros_contradicoes_wTcRg8v.xlsx
+ Relatrio tcnico de anlise salvo em: C:\Users\Danilo\Downloads\dossel_project\media\saida\documento_teste_erros_contradicoes_wTcRg8v\relatorio_tecnico_inconsistencias_documento_teste_erros_contradicoes_wTcRg8v.docx
+
+ Processo de verificao de contradies finalizado.
+ Concluído OK: 'verificador_contradicoes_globais.py' para 'documento_teste_erros_contradicoes_wTcRg8v.docx'
+ Progresso atualizado para: 95% (ID da Revisão: 57)
+ Processamento finalizado com sucesso. Gerando relatórios finais...
+Atualizando planilha mestra de rastreamento...
+Planilha mestra atualizada com sucesso.
+Enviando planilha mestra para n.danilo@dosselambiental.com.br...
+Planilha mestra enviada com sucesso.
+E-mail de conclusão enviado com sucesso para n.danilo@dosselambiental.com.br.
+ Progresso atualizado para: 100% (ID da Revisão: 57)
+ Gerenciador finalizou a execução.

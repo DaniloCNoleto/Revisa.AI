@@ -1,0 +1,14 @@
+/* style.css placeholder */
+body { background-color: #FFF; font-family: 'Segoe UI', sans-serif; text-align: center; padding: 2em; }
+nav { background-color: #2F4F4F; padding: 1em; margin-bottom: 2em; }
+nav a { color: white; margin: 0 1em; text-decoration: none; }
+h2 { color: #1E3D59; margin-bottom: 1em; }
+form input, form button { margin: 0.5em; padding: 0.5em; font-size: 1em; }
+form button { background-color: #379683; color: white; border: none; cursor: pointer; }
+form button:hover { background-color: #317a6c; }
+.logo-img {
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+    height: auto;
+}
