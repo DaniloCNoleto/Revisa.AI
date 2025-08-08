@@ -296,7 +296,27 @@
         .register-container.shake { /* Use .register-container.shake */
             animation: shake 0.5s ease-in-out;
         }
+        
+        /* CSS inserido aqui */
+        .password-hint{
+            font-size:0.9rem;
+            text-align:left;
+            margin:-5px 0 15px 0;    /* cola no campo ➜ ajusta se quiser */
+        }
+        .password-hint ul{ list-style:none; padding-left:1.2em; }
+        .password-hint li{ position:relative; color:#c0392b; margin:3px 0; transition:.2s; }
+        .password-hint li::before{               /* bolinha indicativa */
+            content:"•"; position:absolute; left:-1.2em;
+        }
+        .password-hint li.valid{
+            color:#00af74; text-decoration:line-through;
+        }
+        @media (prefers-color-scheme:dark){
+            .password-hint li{ color:#e74c3c; }
+            .password-hint li.valid{ color:#00bfa5; }
+        }
 
+        
     </style>
 </head>
 <body>
@@ -337,6 +357,17 @@
             <input type="text" name="username" placeholder="Usuário" required>
             <input type="email" name="email" placeholder="E-mail" required>
             <input type="password" name="password" placeholder="Senha" required>
+             
+            <div class="password-hint">
+              <p>Sua senha precisa ter:</p>
+              <ul>
+                <li id="len"     class="invalid">mínimo 8 caracteres</li>
+                <li id="upper"   class="invalid">pelo menos 1 letra maiúscula</li>
+                <li id="number"  class="invalid">pelo menos 1 número</li>
+                <li id="special" class="invalid">pelo menos 1 caractere especial (!@#$…)</li>
+              </ul>
+            </div>
+            
             <input type="password" name="password_confirm" placeholder="Confirme sua senha" required>
             <button type="submit">Registrar</button>
         </form>
@@ -345,5 +376,24 @@
         </div>
     </div>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pwd = document.querySelector('input[name="password"]');
+      const checks = {
+        len:     v => v.length >= 8,
+        upper:   v => /[A-Z]/.test(v),
+        number:  v => /\d/.test(v),
+        special: v => /[!@#$%^&*(),.?":{}|<>]/.test(v)
+      };
+      pwd.addEventListener('input', e => {
+        const val = e.target.value;
+        for (const id in checks){
+          document.getElementById(id)
+                  .classList.toggle('valid', checks[id](val));
+        }
+      });
+    });
+    </script>
+   
 </body>
 </html>
