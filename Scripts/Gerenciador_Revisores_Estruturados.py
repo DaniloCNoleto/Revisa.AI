@@ -137,12 +137,21 @@ def calcular_custo_e_tokens(nome_base_doc, modo):
 def atualizar_planilha_mestra(dados_linha):
     """Cria ou atualiza a planilha mestra com os dados da última execução."""
     print("Atualizando planilha mestra de rastreamento...")
-    cabecalho = ["Data e Hora", "Nome do Documento", "Qtd. Páginas", "Tipo de Revisão", "Tempo de Execução (s)", "Custo (BRL)", "Caminho dos Arquivos"]
+    cabecalho = ["Data e Hora", "Usuário", "Nome do Documento", "Qtd. Páginas", "Tipo de Revisão", "Tempo de Execução (s)", "Custo (BRL)", "Caminho dos Arquivos"]
     
     try:
         if PLANILHA_MESTRA_NOME.exists():
             wb = load_workbook(PLANILHA_MESTRA_NOME)
             ws = wb.active
+            
+            # --- MIGRAÇÃO AUTOMÁTICA (executa apenas 1ª vez) ---
+            primeira_linha = [c.value for c in ws[1]]
+            if "Usuário" not in primeira_linha:
+                # Insere coluna B e preenche cabeçalho
+                ws.insert_cols(idx=2)
+                ws.cell(row=1, column=2, value="Usuário")
+                print("  • Cabeçalho antigo detectado – coluna 'Usuário' adicionada.")
+
         else:
             wb = Workbook()
             ws = wb.active
@@ -308,8 +317,17 @@ def main():
         tokens_in, tokens_out, custo_brl = calcular_custo_e_tokens(nome_base_doc, args.modo)
         caminho_saida_relativo = str((Path(PASTA_SAIDA) / nome_base_doc).relative_to(PROJECT_ROOT))
 
+        try:
+            entry = QueueEntry.objects.get(id=id_revisao_alvo)
+            usuario_nome = entry.user.get_full_name() or entry.user.username
+        except Exception:
+            # fallback: parte antes do @ do e-mail
+            usuario_nome = email_alvo.split("@")[0]
+
+
         dados_para_planilha = [
             time.strftime('%Y-%m-%d %H:%M:%S'),
+            usuario_nome,
             nome_arquivo_original,
             qtd_paginas,
             args.modo,
